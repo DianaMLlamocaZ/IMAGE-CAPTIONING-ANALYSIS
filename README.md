@@ -1,0 +1,333 @@
+# IMAGE CAPTIONING - ANALYSIS
+
+## 1) <ins>DESCRIPCIÓN</ins>
+En este repositorio, implementé un modelo de *Image Captioning* utilizando *Inception V3* como extractor de características (*encoder*), y un *decoder model* que consta de una capa de *Embeddings*, seguida de una *GRU layer* y una capa de clasificación con las palabras del vocabulario, empleando PyTorch.
+
+El objetivo de la implementación se enfoca en evaluar y comparar dos enfoques sobre la generación de captions:
+- 1\) La modificación de hiperparámetros de la arquitectura conjunta (Encoder-Decoder).
+- 2\) El análisis del efecto de la frecuencia de palabras y su aplicación mediante Class Weights.
+  
+Además, utilicé estrategias de *decoding* como *Greedy Approach*, *Vanilla Beam Search* con normalización por longitud y *Diverse Beam Search*, evaluadas a través de la métrica *BLEU Score*.
+
+----
+
+## 2) <ins>DATASET</ins>
+- El *dataset* utilizado fue **Flickr 8k Dataset**, disponible en *Kaggle*.
+- El conjunto de datos contiene 8091 imágenes, cada una anotada con 5 *captions*.
+
+
+### <ins>2.1) DIVISIÓN DE DATOS</ins>
+#### - ESTRATEGIA
+La división de datos se realizó en base a la cantidad de imágenes para evitar *Data Leakage*, el cual podía haber ocurrido si la partición recaía sobre el total de *captions*.
+
+#### - DISTRIBUCIÓN DE SPLITS
+Las particiones se distribuyeron de la siguiente manera:
+
+<div align="center">
+
+|    Split   | Porcentaje | Imágenes | Captions |
+|:----------:|:----------:|:--------:|:--------:|
+|    Train   |     70%    |   5564   |   28320  |
+| Validation |     20%    |   1618   |   8090   |
+|    Test    |     10%    |    809   |   4045   |
+
+<small>**NOTA:** A cada imagen le corresponde 5 *captions*.</small>
+
+</div>
+
+----
+
+## 3) <ins>PREPROCESAMIENTO DE DATOS</ins>
+
+### <ins>3.1) IMAGEN</ins>
+El preprocesamiento de las imágenes se realizó de acuerdo al modelo *Inception V3*, y se describe a continuación:
+
+#### 1) **Resize 299**:
+  - Redimensionado del lado más pequeño de la imagen para mantener el *ratio* ancho*alto.
+  
+#### 2) **Center Crop 299**:
+  - Recorte central de la imagen para obtener una matriz cuadrada sin alterar el *ratio*.
+  
+#### 3) **Conversión a tensor**:
+  - Transformación de imágenes PIL a tensores de PyTorch.
+  
+#### 4) **Normalización**:
+  - Aplicación de normalización usando *mean*=[0.485,0.456,0.406] y *std*=[0.229,0.224,0.225] sobre los tres canales de la imagen, adaptado al modelo *Inception V3*.
+
+====
+
+### <ins>3.2) CAPTIONS</ins>
+
+#### <ins>3.2.1) VOCABULARIO</ins>
+- El vocabulario está compuesto por palabras que tienen una frecuencia de aparición mayor o igual a cinco en el conjunto de datos de entrenamiento.
+- El vocabulario se encarga de mapear cada palabra con su ID Token.
+- Se asignan valores predeterminados para los tokens especiales:<br>
+        ```{"<pad>": 0, "<unk>": 1, "<start_seq>": 2, "<end_seq>": 3}```
+- Tamaño final del vocabulario: 2463
+
+#### <ins>3.2.2) PREPROCESAMIENTO DE CAPTIONS</ins>
+El preprocesamiento de *captions* comprende las etapas de normalización de texto y su conversión a secuencia de ID Tokens como *input* para el *decoder*:
+
+- Conversión a minúsculas
+- Eliminación de signos de puntuación
+- Limpieza de espacios al inicio y fin del *caption* preprocesado.
+- Mapeo del *caption* preprocesado (*string*) a una secuencia de *ID Tokens* (tensor numérico).<br>
+
+
+> **NOTA**:<br>
+> - Si una palabra se encuentra en el *caption* preprocesado y NO en el vocabulario, se le asigna el token "\<unk>".<br>
+> - Cada tensor numérico de *ID Tokens* inicia y finaliza con los tokens "<start_seq>" y "<end_seq>", respectivamente.
+
+----
+
+## 4) <ins>ARQUITECTURA</ins>
+La arquitectura del modelo consta de los siguientes componentes:<br>
+
+- **Encoder**:
+    - Utiliza el modelo *Inception V3*, como extractor de características, para generar el *embedding* de la imagen.<br>
+- **Decoder**:
+    - El *decoder* toma como *hidden state* inicial el *embedding* de la imagen generada por el *encoder* y genera el *caption* iterativamente, actualizando el *hidden state* en cada paso.
+
+A continuación, se describe cada componente detalladamente: 
+
+### <ins>4.1) ENCODER</ins>
+- Primero, se congelan todas las capas del modelo *Inception V3*, ya que se utiliza únicamente como *feature extractor* para generar los *embeddings* de las imágenes.
+  
+- Se remueve la última capa de clasificación del modelo, y se cambia por una *Identity Layer* que mantiene las 2048 dimensiones resultantes de la transformación de la capa anterior.
+  
+- Se conecta la *Identity Layer* a una capa lineal que mapea las 2048 dimensiones a '*embed_img_size*' dimensiones, donde '*embed_img_size*' se definió con un valor de 256.
+
+> **NOTA:** El *embedding* de la imagen debe tener la misma cantidad de dimensiones que el *embedding* de cada palabra.
+
+====
+
+### <ins>4.2) DECODER</ins>
+#### <ins>4.2.1) CAPAS:</ins>
+- ***Embedding Layer***:
+    - **Función:** Convertir el tensor de secuencia de *ID tokens* a tensores de secuencia de *embeddings*.
+      
+    - **Input Size:** Tamaño del vocabulario --> 2463
+  
+    - **Output Size:** '*emb_text_size*' --> Definido con un valor de 256<br>
+
+> **NOTA:** El *embedding* de la imagen ('*embed_img_size*') y el *embedding* de cada palabra ('*emb_text_size*') tienen el mismo valor porque se concatenan sobre la dimensión de secuencia (dim=1) antes de pasar a la capa GRU.
+
+---
+    
+- ***GRU***:
+    - **Función:** Generar el *caption* actualizando iterativamente su *hidden state*.
+      
+    - **Input Size:** '*embed_img_size*' o *'emb_text_size'* (tienen el mismo valor).
+      
+    - **Hidden Size:** '*hidden_size*' --> Definido con un valor de 128 y 256 (misma arquitectura, diferentes hiperparámetros).
+        
+> **NOTA:** La generación de *captions* es iterativa y a nivel de palabra, iniciando con el *embedding* de la imagen como tensor inicial en el *time step* 0. 
+
+---
+
+- ***Classification Layer***:
+    - **Función**: Predicción de la siguiente palabra en la generación del *caption*.
+
+    - **Input Size:** '*hidden_size*' --> 128 o 256 (diferentes hiperparámetros).
+ 
+    - **Output Size:** Tamaño del vocabulario --> 2463
+
+> **NOTA:** La generación de *captions* es a nivel de palabra. En ese sentido, la capa de clasificación tiene 2463 neuronas, correspondientes a las palabras del vocabulario.
+
+
+#### <ins>4.2.2) FLUJO DE GENERACIÓN DE *CAPTIONS*:</ins>
+- **Dinámica temporal ('n' pasos)**:
+    - Para cada *caption*, el proceso se ejecuta mediante un bucle iterativo de 'n' pasos, donde 'n' representa la cantidad de pasos definidos en la inferencia, o la longitud máxima entre todos los *captions* si se utiliza procesamiento en *batches* para el entrenamiento.
+ 
+- **Paso inicial (t=0)**:
+    - Se utiliza el *embedding* de la imagen como el *input* inicial de la capa GRU para establecer el contexto visual y realizar la predicción del primer *token* (que corresponde al token '\<start_seq>' debido a la forma de inferencia definida en la implementación).
+
+- **Propagación y actualización de memoria**:
+    - Para t>0, la GRU procesa el *input* actual y actualiza su *hidden state*, manteniendo la memoria activa desde t=0 hasta el paso actual para la generación del *caption*.
+
+- **Criterio de terminación**:
+    - **Inferencia:**
+        - Las iteraciones continúan de forma secuencial hasta que el modelo prediga el token '\<end_seq>' o si alcanza el límite máximo de pasos definidos.
+    - **Entrenamiento:**
+        - El bucle se ejecuta durante los 'n' pasos, que representa la longitud máxima entre todos los *captions* del *batch*, aplicando un manejo de *padding* en la función de pérdida (*ignore_padding*) para evitar que el *padding token* afecte el cálculo del gradiente en las secuencias.
+
+----
+
+## 5) <ins>DATASET</ins>
+Se creó un *custom dataset*, utilizando la clase predeterminada de PyTorch.
+
+- **Almacenamiento (en \_\_init_\_\):**
+    - Carga y almacena, en dos listas, los ID de las imágenes y los *captions*.
+      
+- **Valores de retorno (en \_\_getitem_\_\):**
+    - Preprocesa la imagen y el *caption* con las [funciones de preprocesamiento de datos definidas](#3-preprocesamiento-de-datos).
+    - Retorna el tensor de la imagen y el tensor de secuencia de ID Tokens del *caption*, listos para utilizarse en el *Encoder* y *Decoder*.
+
+----
+
+## 6) <ins>DATALOADER</ins>
+Se utiliza la clase *DataLoader* de PyTorch para permitir el entrenamiento mediante *batches*, empleando la función auxiliar *collate_fn*:
+
+- **Función:**
+    - Permite el entrenamiento paralelo en *batches*.
+      
+- **Alineación de secuencias (*collate_fn*):**
+    - 1\) Se calcula la longitud exacta, de cada tensor de *caption* dentro del *batch*, para determinar la longitud máxima de secuencia.
+      
+    - 2\) Para cada muestra en el *batch*, se obtiene la diferencia entre la longitud máxima y el tamaño de su *caption*.
+      
+    - 3\) Se genera un tensor de ceros, equivalente a la diferencia calculada, que se concatena al tensor original de la muestra para aplicar *padding* si la secuencia actual es menor a la longitud máxima detectada en el *batch*.
+
+----
+
+## 7) <ins>ENTRENAMIENTO</ins>
+El entrenamiento optimiza conjuntamente los parámetros del *Encoder* y *Decoder*, a través del mismo *optimizer*, cada uno con un *learning rate* individual.
+
+#### 7.1) <ins>ESTRATEGIA DE SECUENCIA Y TEACHER FORCING:</ins>
+- **Embedding visual (t=0):**
+    - Al inicio del bucle iterativo, el tensor de la imagen se concatena como el primer elemento de la secuencia de entrada (dim=1), estableciendo el contexto visual como primer paso (*step*) en la *GRU Layer*.
+
+- **Implementación de *teacher forcing*:**
+    - Durante la fase de entrenamiento, el modelo no utiliza sus propias predicciones anteriores como entrada para el siguiente paso. En cambio, se utiliza la estrategia *teacher forcing* para utilizar directamente los *embeddings* del *caption* real en cada paso del bucle para estabilizar el aprendizaje y convergencia.
+ 
+- **Criterio de terminación:**
+    - El bucle se ejecuta durante '*seq_length-1*' pasos. Esto evita que el *token* *'\<end_seq>'* se procese como *input* para generar un paso posterior, permitiendo que el *decoder* aprenda a predecir cuándo finalizar la generación del *caption*.
+
+
+#### 7.2) <ins>FUNCIÓN DE PÉRDIDA Y PADDING:</ins>
+- **Cálculo de logits:**
+    - En cada iteración, el *hidden state* de la *GRU Layer* pasa por la capa de clasificación para generar *logits* (que representa la distribución de probabilidad no normalizada) sobre el espacio total del vocabulario (2463 clases/palabras).<br>
+      Los tensores resultantes se concatenan y permutan a las siguientes dimensiones:<br>
+      <div align="center">
+        
+      ```[batch_size,vocab_size,sequence_length]```
+      
+      </div>
+      
+      para evaluarse de forma multidimensional utilizando la *Cross Entropy Loss Function* de PyTorch.
+
+- **Ignore index - Loss function:**
+    - Debido a que las secuencias en un mismo *batch* contienen diferentes longitudes, se utiliza la técnica *padding* para permitir el entrenamiento paralelo.<br> Con la finalidad de evitar que el modelo calcule gradientes sobre estos valores 'vacíos', se emplea el parámetro "*ignore_index=0*" en la *Cross Entropy loss function*, haciendo referencia al *padding token* para que no afecte el entrenamiento.
+
+----
+
+## 8) <ins>INFERENCIA</ins>
+En la etapa de inferencia, es decir, generación de *captions*, se utilizaron los tres siguientes enfoques: *Greedy Approach*, *Vanilla Beam Search* (normalizado por longitud) y *Diverse Beam Search*.
+
+#### 8.1) <ins>GREEDY APPROACH</ins>
+- En cada paso de generación, se selecciona el *token* con mayor probabilidad hasta que se prediga el *<end_seq> token*.
+
+#### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
+- **1)** Beam Search se basa en la probabilidad conjunta de eventos dependientes. Es decir, en la multiplicación de las probabilidades en cada paso de generación del *caption* (secuencia).
+  
+<p align="center">
+  <img src="./Images/ProbabilidadConjunta.JPG" width=400>
+</p>
+
+===
+
+- **2)** En cada paso *‘t’* se seleccionan las *'n'* secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
+
+<p align="center">
+  <img src="./Images/BeamSearch.jpg" width=400>
+</p>
+
+ > **NOTA:** Este proceso finaliza cuando se ejecutan los ‘T’ pasos máximos permitidos o cuando el modelo genere simultáneamente el *token "<end_seq>"* sobre los *beams* activos.
+
+===
+
+- **3)** Dado que la probabilidad es un número de rango [0-1], a medida que la secuencia sea de mayor longitud, la probabilidad conjunta de la secuencia tenderá a cero, lo que puede generar problemas de estabilidad numérica.
+En ese caso, en vez de utilizar la notación de multiplicación para representar la probabilidad conjunta, se utilizarán logaritmos, cambiando la productoria a una sumatoria:
+
+<table align="center" style="border: none;">
+  <tr>
+    <td align="center" style="vertical-align: middle; border: none;">
+      <img src="./Images/Productoria_ProbabilidadConjunta.JPG" width="350" height="120" style="object-fit: contain;" />
+    </td>
+    <td align="center" style="vertical-align: middle; border: none;">
+      <img src="./Images/Sumatoria_ProbabilidadConjunta.JPG" width="350" height="120" style="object-fit: contain;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="vertical-align: top; border: none; font-size: 0.9em; padding-top: 8px;">
+      <b>Figura A:</b> Productoria de probabilidades (rango [0-1]).
+    </td>
+    <td align="center" style="vertical-align: top; border: none; font-size: 0.9em; padding-top: 8px;">
+      <b>Figura B:</b> Sumatoria en el espacio logarítmico (valores negativos).
+    </td>
+  </tr>
+</table>
+
+> **NOTA:** La variable ‘X’ representa el *embedding* de la imagen. Es decir, la probabilidad conjunta de la secuencia está condicionada tanto por el *image embedding* como por la secuencia base (los *tokens* generados en los pasos anteriores).
+
+===
+
+- **4)** Finalmente, sobre los *beams* completos se aplica normalización por longitud. Este paso es fundamental, ya que a medida que una secuencia se extiende, su probabilidad conjunta disminuye debido a la multiplicación con valores en un rango de [0-1].<br>
+En el espacio logarítmico, esto se traduce en valores cada vez más negativos (alejándose del valor 0 que representa la máxima probabilidad).
+De esta manera, al normalizar la probabilidad conjunta por la longitud de la secuencia, se reduce el sesgo hacia oraciones más cortas: 
+
+<p align="center">
+  <img src="./Images/NormalizacionLongitud.jpg" width=400>
+</p>
+
+> **NOTA:** Como se visualiza en la gráfica, al normalizar la probabilidad conjunta por su longitud, la secuencia 5 (*S5*) obtiene una puntuación mayor que la secuencia 4 (*S4*) sin importar el *length*.
+
+<h3 align="center" style="font-size: 1.17em; font-weight: bold;">
+--> Esta lógica del algoritmo <i>Beam Search</i> y normalización fueron integradas conjuntamente en la inferencia del modelo para la generación de <i>captions</i>
+</h3>
+
+----
+
+## 9) <ins>MODELO ENTRENADO INICIAL</ins>
+- Inicialmente, se entrenó el modelo con los siguientes hiperparámetros:
+
+<div align="center">
+  
+| **Hiperparámetros** | **Valor** |
+|:-------------------:|:---------:|
+|    embed_img_size   |    256    |
+|  embed_caption_size |    256    |
+|     hidden_size (GRU)    |    128    |
+|      num_layers (GRU)     |     1     |
+|    l_r_img_model    |    1e-5   |
+|    l_r_dec_model    |    5e-4   |
+|    épocas máximas   |    100    |
+|    Early Stopping   |     Sí    |
+
+</div>
+
+- **Encoder:**
+    - **Capas:** *Inception V3* --> *Linear Layer*
+    - ***Output dimensions* (respectivamente):** 2048 dims --> 256 dims
+      
+- **Decoder:**
+    - **Capas:** *Embedding Layer* --> *GRU Layer* --> *Classification Layer*
+    - ***Output dimensions* (respectivamente):** 256 dims --> 128 dims --> 2463 dims
+
+----
+
+## 10) <ins>DISEÑO EXPERIMENTAL</ins>
+
+#### 10.1) <ins>*BEAM SEARCH*: *CAPTIONS GENERADOS*</ins>
+
+
+#### 10.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
+- Dado que el algoritmo *Beam Search* generaba *captions* similares, cambiando únicamente las palabras al final de la oración, se decidió visualizar los valores numéricos de la distribución de probabilidad de la capa de clasificación, obteniendo los siguientes resultados: 
+
+
+> NOTA: De la gráfica, se observó que el modelo asignó probabilidades muy altas a ciertas palabras durante la generación de *captions* del *Beam Search*:<br>
+> Para el paso de iteración inicial (t=0) sobre los *active beams*:
+>   - 65% al índice de la palabra 48.
+>   - 7% al índice de la palabra 41, y así sucesivamente.
+
+> Para el paso de iteración siguiente (t=1) sobre los *active beams*:
+>    - 26% al índice de la palabra 27
+>    - 20% al índice de la palabra 28, y así sucesivamente
+
+--> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
+
+#### 10.3) <ins>*TEMPERATURE*: *SOFTMAX FUNCTION*</ins>
+- Debido al motivo anterior, se decidió utilizar un factor de escala '*temperature*' sobre los *logits*, antes de que se normalicen a un rango [0-1] (probabilidades) mediante la *SoftMax Function*, para uniformizar la distribución de probabilidad de la capa de clasificación y visualizar el efecto que tiene sobre las *captions* generadas del algoritmo *Vanilla Beam Search* con normalización por longitud.<br>
+
+
+> **NOTA:** Mientras mayor sea el valor de *temperature*, más uniforme se vuelve la distribución de probabilidad, lo que incrementa la aleatoriedad entre diversos *tokens* y reduce las magnitudes altas de probabilidad.
