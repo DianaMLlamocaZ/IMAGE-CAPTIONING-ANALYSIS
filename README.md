@@ -430,3 +430,5 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 > **NOTA:**
 > Para la evaluación del algoritmo *Vanilla Beam Search*, se seleccionó la secuencia con mayor probabilidad conjunta y se comparó sobre sus *captions* de referencia.
+
+#### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
