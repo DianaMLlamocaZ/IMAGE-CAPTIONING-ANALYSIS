@@ -333,15 +333,17 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 > **NOTA:** De la gráfica, se observó que el modelo asignó probabilidades muy altas a ciertas palabras durante la generación de *captions* del *Beam Search*:<br>
 
+<div align="center">
   | **Iteración** | **Distribución de probabilidad** |
   |---------------|----------------------------------|
   | t=1           | - 65% al índice de la palabra 48 |
   |               | - 7% al índice de la palabra 41  |
   |               | y así sucesivamente...           |
-  |---------------|----------------------------------|
+  |--------------------------------------------------|
   | t=2           | - 26% al índice de la palabra 27 |
   |               | - 20% al índice de la palabra 28 |
   |               | y así sucesivamente...           |
+</div>
 
 --> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
 
