@@ -428,7 +428,13 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 </div>
 
+- **Resultados:**
+  - El "modelo 2" tuvo un mejor rendimiento que el modelo inicial.
+  - Aumentar las dimensiones del *hidden state* permitió mayor generalización sobre el *dataset* de validación. 
+
+
 > **NOTA:**
 > Para la evaluación del algoritmo *Vanilla Beam Search*, se seleccionó la secuencia con mayor probabilidad conjunta para cada imagen y se evaluó el desempeño global sobre todo el *dataset* de validación.
+
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
