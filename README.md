@@ -392,7 +392,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ## 11) <ins>ARQUITECTURA DEL MODELO</ins>
 
-Con la finalidad de identificar si la arquitectura del modelo impacta directamente sobre la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
+Con la finalidad de identificar si la arquitectura del modelo impacta en el rendimiento del modelo y en la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
 
 ### 11.1) <ins>HIPERPARÁMETROS</ins>
 <div align="center">
@@ -410,3 +410,17 @@ Con la finalidad de identificar si la arquitectura del modelo impacta directamen
 </div>
 
 ### 11.2) <ins>EVALUACIÓN</ins>
+
+#### 11.2.1) <ins>RENDIMIENTO GENERAL</ins>
+
+- Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de evaluación:
+
+| Estrategia de decodificación           | Métrica BLEU | Modelo inicial | Modelo 2 |
+|----------------------------------------|--------------|----------------|----------|
+| *Greedy Search*                        | BLEU-1       | 0.4185         | 0.4949   |
+| *Greedy Search*                        | BLEU-2       | 0.2577         | 0.3163   |
+| *Greedy Search*                        | BLEU-3       | 0.1553         | 0.1975   |
+| *Vanilla Beam Search* (*beam width*=4) | BLEU-1       | 0.4642         | 0.5343   |
+| *Vanilla Beam Search* (*beam width*=4) | BLEU-2       | 0.2784         | 0.3457   |
+| *Vanilla Beam Search* (*beam width*=4) | BLEU-3       | 0.1740         | 0.2227   |
+
