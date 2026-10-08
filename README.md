@@ -335,23 +335,17 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 <table align="center" style="border: none; width: 100%;">
   <tr>
-    <td align="center" style="vertical-align: top; border: none; width: 50%; padding-right: 10px;">
-      
-| **Paso inicial (t=1)** | *Active Beams* |
-| :--- | :--- |
-| **65%** | Índice de palabra 48 |
-| **7%** | Índice de palabra 41 |
-| ... | *y así sucesivamente* |
+    <td align="left" style="vertical-align: top; border: none; width: 50%; padding-right: 15px;">
+      <b>Paso inicial (t=1)</b><br>
+      • <b>65%</b> - Índice de la palabra <code>48</code><br>
+      • <b>7%</b> - Índice de la palabra <code>41</code><br>
+      • <i>...y así sucesivamente</i>
     </td>
-    
-    <td align="center" style="vertical-align: top; border: none; width: 50%; padding-left: 10px;">
-      
-| **Paso siguiente (t=2)** | *Active Beams* |
-| :--- | :--- |
-| **26%** | Índice de palabra 27 |
-| **20%** | Índice de palabra 28 |
-| ... | *y así sucesivamente* |
-
+    <td align="left" style="vertical-align: top; border: none; width: 50%; padding-left: 15px;">
+      <b>Paso siguiente (t=2)</b><br>
+      • <b>26%</b> - Índice de la palabra <code>27</code><br>
+      • <b>20%</b> - Índice de la palabra <code>28</code><br>
+      • <i>...y así sucesivamente</i>
     </td>
   </tr>
 </table>
