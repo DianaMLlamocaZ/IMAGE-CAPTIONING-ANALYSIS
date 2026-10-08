@@ -377,7 +377,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 </p>
 
 <p align="center">
-  <sub> Figura: (izquierda) No temperature. (derecha) Sí temperature.</sub>
+  <sub> Figura: (izquierda) Probabilidades sin temperature. (derecha) Probabilidades con temperature.</sub>
 </p>
 
 
