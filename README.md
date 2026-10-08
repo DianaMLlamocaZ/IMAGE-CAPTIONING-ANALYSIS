@@ -347,3 +347,11 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 
 - **APLICACIÓN:**
   - Se empleó un valor de *temperature*=5 sobre los logits antes de convertirse a probabilidad, logrando 'uniformizar' la distribución
+
+<p align="center">
+  <img src="./Images/Logits_No_Temperature.JPG" width=350> <img src="./Images/Logits_SI_Temperature.JPG" width=350>
+</p>
+
+<p align="center">
+  <sub> Figura: (izquierda) No *temperature*. (derecha) Sí *temperature*.</sub>
+</p>
