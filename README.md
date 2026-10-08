@@ -353,5 +353,5 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 </p>
 
 <p align="center">
-  <sub> Figura: (izquierda) No *temperature*. (derecha) Sí *temperature*.</sub>
+  <sub> Figura: (izquierda) No temperature. (derecha) Sí temperature.</sub>
 </p>
