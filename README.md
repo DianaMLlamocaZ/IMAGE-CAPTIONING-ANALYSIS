@@ -337,16 +337,16 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
   <tr>
     <td align="center" style="vertical-align: top; border: none; width: 50%; padding-right: 10px;">
       
-| **Paso inicial ($t=1$)** | *Active Beams* |
+| **Paso inicial (t=1)** | *Active Beams* |
 | :--- | :--- |
 | **65%** | Índice de palabra 48 |
 | **7%** | Índice de palabra 41 |
 | ... | *y así sucesivamente* |
-
     </td>
+    
     <td align="center" style="vertical-align: top; border: none; width: 50%; padding-left: 10px;">
       
-| **Paso siguiente ($t=2$)** | *Active Beams* |
+| **Paso siguiente (t=2)** | *Active Beams* |
 | :--- | :--- |
 | **26%** | Índice de palabra 27 |
 | **20%** | Índice de palabra 28 |
