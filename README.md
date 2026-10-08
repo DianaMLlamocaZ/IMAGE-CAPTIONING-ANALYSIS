@@ -429,8 +429,8 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 </div>
 
 - **Resultados:**
-  - El "modelo 2" tuvo un mejor rendimiento que el modelo inicial.
-  - Aumentar las dimensiones del *hidden state* permitió mayor generalización sobre el *dataset* de validación. 
+  - El "modelo 2" tuvo mejor rendimiento que el modelo inicial.
+  - Aumentar las dimensiones del *hidden state* permitió mayor rendimiento general. 
 
 
 > **NOTA:**
