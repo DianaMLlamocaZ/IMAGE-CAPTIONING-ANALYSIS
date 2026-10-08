@@ -340,7 +340,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
   | t=1           | - 65% al índice de la palabra 48 |
   |               | - 7% al índice de la palabra 41  |
   |               | y así sucesivamente...           |
-  |---------------|----------------------------------|
+  |--------------------------------------------------|
   | t=2           | - 26% al índice de la palabra 27 |
   |               | - 20% al índice de la palabra 28 |
   |               | y así sucesivamente...           |
