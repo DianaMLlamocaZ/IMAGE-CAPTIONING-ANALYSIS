@@ -218,13 +218,15 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 - En cada paso de generación, se selecciona el *token* con mayor probabilidad hasta que se prediga el *<end_seq> token*.
 
 ### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
-- **1)** Beam Search se basa en la probabilidad conjunta de eventos dependientes. Es decir, en la multiplicación de las probabilidades en cada paso de generación del *caption* (secuencia).
+
+#### 8.2.1) PROBABILIDAD CONJUNTA
+- Beam Search se basa en la probabilidad conjunta de eventos dependientes. Es decir, en la multiplicación de las probabilidades en cada paso de generación del *caption* (secuencia).
   
 <p align="center">
   <img src="./Images/ProbabilidadConjunta.JPG" width=400>
 </p>
 
-===
+---
 
 - **2)** En cada paso *‘t’* se seleccionan las *'n'* secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
 
