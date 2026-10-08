@@ -214,10 +214,10 @@ El entrenamiento optimiza conjuntamente los parámetros del *Encoder* y *Decoder
 ## 8) <ins>INFERENCIA</ins>
 En la etapa de inferencia, es decir, generación de *captions*, se utilizaron los tres siguientes enfoques: *Greedy Approach*, *Vanilla Beam Search* (normalizado por longitud) y *Diverse Beam Search*.
 
-#### 8.1) <ins>GREEDY APPROACH</ins>
+### 8.1) <ins>GREEDY APPROACH</ins>
 - En cada paso de generación, se selecciona el *token* con mayor probabilidad hasta que se prediga el *<end_seq> token*.
 
-#### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
+### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
 - **1)** Beam Search se basa en la probabilidad conjunta de eventos dependientes. Es decir, en la multiplicación de las probabilidades en cada paso de generación del *caption* (secuencia).
   
 <p align="center">
