@@ -340,6 +340,15 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 >    - 26% al índice de la palabra 27
 >    - 20% al índice de la palabra 28, y así sucesivamente
 
+| **Iteración** | **Distribución de probabilidad** |
+|---------------|----------------------------------|
+| t=1           | - 65% al índice de la palabra 48 |
+|               | - 7% al índice de la palabra 41  |
+|               | y así sucesivamente...           |
+| t=2           | - 26% al índice de la palabra 27 |
+|               | - 20% al índice de la palabra 28 |
+|               | y así sucesivamente...           |
+
 --> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
 
 
