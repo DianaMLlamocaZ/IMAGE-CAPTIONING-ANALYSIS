@@ -217,9 +217,10 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 ### 8.1) <ins>GREEDY APPROACH</ins>
 - En cada paso de generación, se selecciona el *token* con mayor probabilidad hasta que se prediga el *<end_seq> token*.
 
+
 ### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
 
-#### 8.2.1) PROBABILIDAD CONJUNTA
+#### 8.2.1) <ins>PROBABILIDAD CONJUNTA</ins>
 - Beam Search se basa en la probabilidad conjunta de eventos dependientes. Es decir, en la multiplicación de las probabilidades en cada paso de generación del *caption* (secuencia).
   
 <p align="center">
@@ -228,7 +229,9 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 
 ---
 
-- **2)** En cada paso *‘t’* se seleccionan las *'n'* secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
+#### 8.2.2) <ins>BEAM SEARCH</ins>
+
+- En cada paso *‘t’* se seleccionan las *'n'* secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
 
 <p align="center">
   <img src="./Images/BeamSearch.jpg" width=400>
@@ -236,9 +239,11 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 
  > **NOTA:** Este proceso finaliza cuando se ejecutan los ‘T’ pasos máximos permitidos o cuando el modelo genere simultáneamente el *token "<end_seq>"* sobre los *beams* activos.
 
-===
+---
 
-- **3)** Dado que la probabilidad es un número de rango [0-1], a medida que la secuencia sea de mayor longitud, la probabilidad conjunta de la secuencia tenderá a cero, lo que puede generar problemas de estabilidad numérica.
+#### 8.2.3) <ins>PRODUCTORIA A SUMATORIA</ins>
+
+- Dado que la probabilidad es un número de rango [0-1], a medida que la secuencia sea de mayor longitud, la probabilidad conjunta de la secuencia tenderá a cero, lo que puede generar problemas de estabilidad numérica.
 En ese caso, en vez de utilizar la notación de multiplicación para representar la probabilidad conjunta, se utilizarán logaritmos, cambiando la productoria a una sumatoria:
 
 <table align="center" style="border: none;">
@@ -262,10 +267,13 @@ En ese caso, en vez de utilizar la notación de multiplicación para representar
 
 > **NOTA:** La variable ‘X’ representa el *embedding* de la imagen. Es decir, la probabilidad conjunta de la secuencia está condicionada tanto por el *image embedding* como por la secuencia base (los *tokens* generados en los pasos anteriores).
 
-===
+---
 
-- **4)** Finalmente, sobre los *beams* completos se aplica normalización por longitud. Este paso es fundamental, ya que a medida que una secuencia se extiende, su probabilidad conjunta disminuye debido a la multiplicación con valores en un rango de [0-1].<br>
-En el espacio logarítmico, esto se traduce en valores cada vez más negativos (alejándose del valor 0 que representa la máxima probabilidad).
+#### 8.2.4) *<ins>LENGTH NORMALIZATION</ins>*
+
+- Finalmente, sobre los *beams* completos se aplica normalización por longitud. Este paso es fundamental, ya que a medida que una secuencia se extiende, su probabilidad conjunta disminuye debido a la multiplicación con valores en un rango de [0-1].<br>
+
+- En el espacio logarítmico, esto se traduce en valores cada vez más negativos (alejándose del valor 0 que representa la máxima probabilidad).
 De esta manera, al normalizar la probabilidad conjunta por la longitud de la secuencia, se reduce el sesgo hacia oraciones más cortas: 
 
 <p align="center">
@@ -273,6 +281,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 </p>
 
 > **NOTA:** Como se visualiza en la gráfica, al normalizar la probabilidad conjunta por su longitud, la secuencia 5 (*S5*) obtiene una puntuación mayor que la secuencia 4 (*S4*) sin importar el *length*.
+
 
 <h3 align="center" style="font-size: 1.17em; font-weight: bold;">
 --> Esta lógica del algoritmo <i>Beam Search</i> y normalización fueron integradas conjuntamente en la inferencia del modelo para la generación de <i>captions</i>
