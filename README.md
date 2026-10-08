@@ -339,7 +339,7 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 - **FÓRMULA:**
 
 <p align="center">
-  <img src="./Images/Softmax-Temperature.JPG" width=350>
+  <img src="./Images/Softmax-Temperature.JPG" width=400>
 </p>
 
 > **NOTA:** Mientras mayor sea el valor de *temperature*, más uniforme se vuelve la distribución de probabilidad, lo que incrementa la aleatoriedad entre diversos *tokens* y reduce las magnitudes altas de probabilidad.
