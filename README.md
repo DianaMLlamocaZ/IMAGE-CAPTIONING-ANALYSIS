@@ -336,15 +336,15 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 <table align="center" style="border: none; width: 100%;">
   <tr>
     <td align="left" style="vertical-align: top; border: none; width: 50%; padding-right: 15px; border-right: 1px solid #d0d7de;">
-      <b>Paso inicial ($t=1$)</b><br>
-      • <b>65%</b> - Índice de la palabra <code>48</code><br>
-      • <b>7%</b> - Índice de la palabra <code>41</code><br>
+      <b>Paso inicial (t=1)</b><br>
+      • <b>65%</b> - Índice de la palabra 48<br>
+      • <b>7%</b> - Índice de la palabra 41<br>
       • <i>...y así sucesivamente</i>
     </td>
     <td align="left" style="vertical-align: top; border: none; width: 50%; padding-left: 15px;">
-      <b>Paso siguiente ($t=2$)</b><br>
-      • <b>26%</b> - Índice de la palabra <code>27</code><br>
-      • <b>20%</b> - Índice de la palabra <code>28</code><br>
+      <b>Paso siguiente (t=2)</b><br>
+      • <b>26%</b> - Índice de la palabra 27<br>
+      • <b>20%</b> - Índice de la palabra 28<br>
       • <i>...y así sucesivamente</i>
     </td>
   </tr>
