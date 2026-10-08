@@ -357,9 +357,8 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 > **NOTA:** Mientras mayor sea el valor de *temperature*, más uniforme se vuelve la distribución de probabilidad, lo que incrementa la aleatoriedad entre diversos *tokens* y reduce las magnitudes altas de probabilidad.
 
 
-  - **APLICACIÓN:**
-    
-      - Se empleó un valor de *temperature*=5 sobre los logits antes de convertirse a probabilidad, logrando 'uniformizar' la distribución
+- **APLICACIÓN:**
+  - Se empleó un valor de *temperature*=5 sobre los logits antes de convertirse a probabilidad, logrando 'uniformizar' la distribución
 
 <p align="center">
   <img src="./Images/Logits_No_Temperature.JPG" width=350> <img src="./Images/Logits_SI_Temperature.JPG" width=350>
@@ -370,7 +369,7 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 </p>
 
 
-- **OBSERVACIÓN:**
-    - Si bien la *temperature* uniformizó las probabilidades del modelo, las secuencias generadas por el algoritmo *Beam Search* continuaron generando pequeñas diferencias al final de cada *caption*, no habiendo diversidad en las secuencias generadas, lo que llevó a plantear dos hipótesis:
+  - **OBSERVACIÓN:**
+      - Si bien la *temperature* uniformizó las probabilidades del modelo, las secuencias generadas por el algoritmo *Beam Search* continuaron generando pequeñas diferencias al final de cada *caption*, no habiendo diversidad en las secuencias generadas, lo que llevó a plantear dos hipótesis:
         - 1) Arquitectura del modelo
         - 2) *Class Weights* en las palabras 
