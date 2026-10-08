@@ -415,6 +415,8 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 - Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación:
 
+<div align="center">
+  
 | Estrategia de decodificación           | Métrica BLEU | Modelo inicial | Modelo 2 |
 |----------------------------------------|--------------|----------------|----------|
 | *Greedy Search*                        | BLEU-1       | 0.4185         | 0.4949   |
@@ -424,5 +426,7 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 | *Vanilla Beam Search* (*beam width*=4) | BLEU-2       | 0.2784         | 0.3457   |
 | *Vanilla Beam Search* (*beam width*=4) | BLEU-3       | 0.1740         | 0.2227   |
 
-> NOTA:
+</div>
+
+> **NOTA:**
 > Para la evaluación del algoritmo *Vanilla Beam Search*, se seleccionó la secuencia con mayor probabilidad conjunta y se comparó sobre sus *captions* de referencia.
