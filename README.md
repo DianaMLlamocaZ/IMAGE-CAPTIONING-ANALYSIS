@@ -244,7 +244,8 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 #### 8.2.3) <ins>PRODUCTORIA A SUMATORIA</ins>
 
 - Dado que la probabilidad es un número de rango [0-1], a medida que la secuencia sea de mayor longitud, la probabilidad conjunta de la secuencia tenderá a cero, lo que puede generar problemas de estabilidad numérica.
-En ese caso, en vez de utilizar la notación de multiplicación para representar la probabilidad conjunta, se utilizarán logaritmos, cambiando la productoria a una sumatoria:
+
+- En ese caso, en vez de utilizar la notación de multiplicación para representar la probabilidad conjunta, se utilizarán logaritmos, cambiando la productoria a una sumatoria:
 
 <table align="center" style="border: none;">
   <tr>
