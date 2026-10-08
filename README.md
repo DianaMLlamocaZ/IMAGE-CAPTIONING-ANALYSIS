@@ -370,8 +370,7 @@ Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se deci
 </p>
 
 
-  - **OBSERVACIÓN:**
-    
-        - Si bien la *temperature* uniformizó las probabilidades del modelo, las secuencias generadas por el algoritmo *Beam Search* continuaron generando pequeñas diferencias al final de cada *caption*, no habiendo diversidad en las secuencias generadas, lo que llevó a plantear dos hipótesis:
+- **OBSERVACIÓN:**
+    - Si bien la *temperature* uniformizó las probabilidades del modelo, las secuencias generadas por el algoritmo *Beam Search* continuaron generando pequeñas diferencias al final de cada *caption*, no habiendo diversidad en las secuencias generadas, lo que llevó a plantear dos hipótesis:
         - 1) Arquitectura del modelo
         - 2) *Class Weights* en las palabras 
