@@ -392,7 +392,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ## 11) <ins>ARQUITECTURA DEL MODELO</ins>
 
-Con la finalidad de identificar si la arquitectura del modelo impacta en el rendimiento del modelo y en la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
+Con la finalidad de identificar si la arquitectura del modelo impacta en el rendimiento general y en la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
 
 ### 11.1) <ins>HIPERPARÁMETROS</ins>
 <div align="center">
