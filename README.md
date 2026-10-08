@@ -393,3 +393,13 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 ## 11) <ins>ARQUITECTURA DEL MODELO</ins>
 
 Con la finalidad de identificar si la arquitectura del modelo impacta directamente sobre la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
+
+| **Hiperparámetros**   | **Modelo inicial** | **Modelo 2** |
+|-----------------------|--------------------|--------------|
+| embed_img_size        | 256                | 256          |
+| embed_caption_size    | 256                | 256          |
+| **hidden_size (GRU)** | **128**            | **256**      |
+| num_layers (GRU)      | 1                  | 1            |
+| l_r_img_model         | 1e-5               | 1e-5         |
+| l_r_dec_model         | 5e-4               | 5e-4         |
+| Early Stopping        | Sí                 | Sí           |
