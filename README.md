@@ -392,4 +392,6 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ## 11) <ins>ARQUITECTURA DEL MODELO</ins>
 
+<div style="text-align: left; overflow-wrap: normal; word-break: normal;">
 Con la finalidad de identificar si la arquitectura del modelo impacta directamente sobre la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
+</div>
