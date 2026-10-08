@@ -314,8 +314,12 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 #### 10.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
 - Dado que el algoritmo *Beam Search* generaba *captions* similares, cambiando únicamente las palabras al final de la oración, se decidió visualizar los valores numéricos de la distribución de probabilidad de la capa de clasificación, obteniendo los siguientes resultados: 
 
+<p align="center">
+  <img src="./Images/Logits_No_Temperature.JPG">
+</p>
 
-> NOTA: De la gráfica, se observó que el modelo asignó probabilidades muy altas a ciertas palabras durante la generación de *captions* del *Beam Search*:<br>
+
+> **NOTA:** De la gráfica, se observó que el modelo asignó probabilidades muy altas a ciertas palabras durante la generación de *captions* del *Beam Search*:<br>
 > Para el paso de iteración inicial (t=0) sobre los *active beams*:
 >   - 65% al índice de la palabra 48.
 >   - 7% al índice de la palabra 41, y así sucesivamente.
