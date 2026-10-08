@@ -320,10 +320,10 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ## 10) <ins>DISEÑO EXPERIMENTAL</ins>
 
-#### 10.1) <ins>*BEAM SEARCH*: *CAPTIONS GENERADOS*</ins>
+### 10.1) <ins>*BEAM SEARCH*: *CAPTIONS GENERADOS*</ins>
 
 
-#### 10.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
+### 10.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
 - Dado que el algoritmo *Beam Search* generaba *captions* similares, cambiando únicamente las palabras al final de la oración, se decidió visualizar los valores numéricos de la distribución de probabilidad de la capa de clasificación, obteniendo los siguientes resultados: 
 
 <p align="center">
@@ -343,7 +343,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 --> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
 
 
-#### 10.3) <ins>PROBLEMA ENCONTRADO: PROBABILIDAD ALTA SOBRE CIERTOS *TOKENS*</ins>
+### 10.3) <ins>PROBLEMA ENCONTRADO: PROBABILIDAD ALTA SOBRE CIERTOS *TOKENS*</ins>
 Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se decidió utilizar un factor de escala '*temperature*' sobre los *logits*, antes de que se normalicen a un rango [0-1] (probabilidades) mediante la *SoftMax Function*, para uniformizar la distribución de probabilidad de la capa de clasificación y visualizar el efecto que tiene sobre las *captions* generadas del algoritmo *Vanilla Beam Search* con normalización por longitud:<br>
 
 - **10.3.1) <ins>SOLUCIÓN 1: *TEMPERATURE* - *SOFTMAX FUNCTION*</ins>**
