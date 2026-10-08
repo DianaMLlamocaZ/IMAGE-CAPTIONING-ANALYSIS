@@ -333,19 +333,28 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 > **NOTA:** De la gráfica, se observó que el modelo asignó probabilidades muy altas a ciertas palabras durante la generación de *captions* del *Beam Search*:<br>
 
-<div align="center">
-  
-  | **Iteración** | **Distribución de probabilidad** |
-  |---------------|----------------------------------|
-  | t=1           | - 65% al índice de la palabra 48 |
-  |               | - 7% al índice de la palabra 41  |
-  |               | y así sucesivamente...           |
-  |--------------------------------------------------|
-  | t=2           | - 26% al índice de la palabra 27 |
-  |               | - 20% al índice de la palabra 28 |
-  |               | y así sucesivamente...           |
-  
-</div>
+<table align="center" style="border: none; width: 100%;">
+  <tr>
+    <td align="center" style="vertical-align: top; border: none; width: 50%; padding-right: 10px;">
+      
+| **Paso inicial ($t=1$)** | *Active Beams* |
+| :--- | :--- |
+| **65%** | Índice de palabra 48 |
+| **7%** | Índice de palabra 41 |
+| ... | *y así sucesivamente* |
+
+    </td>
+    <td align="center" style="vertical-align: top; border: none; width: 50%; padding-left: 10px;">
+      
+| **Paso siguiente ($t=2$)** | *Active Beams* |
+| :--- | :--- |
+| **26%** | Índice de palabra 27 |
+| **20%** | Índice de palabra 28 |
+| ... | *y así sucesivamente* |
+
+    </td>
+  </tr>
+</table>
 
 --> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
 
