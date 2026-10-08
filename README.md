@@ -330,11 +330,20 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 --> **OBSERVACIÓN:** Esto ocasiona que el algoritmo *Beam Search* continúe eligiendo la misma secuencia solo por tener una mayor probabilidad conjunta, evitando considerar otras ramas de secuencias.
 
-#### 10.3) <ins>*TEMPERATURE*: *SOFTMAX FUNCTION*</ins>
-- Debido al motivo anterior, se decidió utilizar un factor de escala '*temperature*' sobre los *logits*, antes de que se normalicen a un rango [0-1] (probabilidades) mediante la *SoftMax Function*, para uniformizar la distribución de probabilidad de la capa de clasificación y visualizar el efecto que tiene sobre las *captions* generadas del algoritmo *Vanilla Beam Search* con normalización por longitud.<br>
+
+#### 10.3) <ins>SOLUCIÓN 1: PROBABILIDAD ALTA SOBRE CIERTOS *TOKENS*</ins>
+Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se decidió utilizar un factor de escala '*temperature*' sobre los *logits*, antes de que se normalicen a un rango [0-1] (probabilidades) mediante la *SoftMax Function*, para uniformizar la distribución de probabilidad de la capa de clasificación y visualizar el efecto que tiene sobre las *captions* generadas del algoritmo *Vanilla Beam Search* con normalización por longitud.<br>
+
+#### 10.3.1) <ins>*TEMPERATURE*: *SOFTMAX FUNCTION*</ins>
+
+- **FÓRMULA:**
 
 <p align="center">
   <img src="./Images/Softmax-Temperature.JPG">
 </p>
 
 > **NOTA:** Mientras mayor sea el valor de *temperature*, más uniforme se vuelve la distribución de probabilidad, lo que incrementa la aleatoriedad entre diversos *tokens* y reduce las magnitudes altas de probabilidad.
+
+
+- **APLICACIÓN:**
+  - Se empleó un valor de *temperature*=5 sobre los logits antes de convertirse a probabilidad, logrando 'uniformizar' la distribución
