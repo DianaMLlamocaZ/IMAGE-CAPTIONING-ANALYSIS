@@ -386,7 +386,7 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
   
   - Ante dicha situación, se evaluaron dos enfoques para identificar cuál de ellos tiene un mayor impacto en la generación y diversidad de *captions* del algoritmo *Beam Search*:<br>
     - [1\) Influencia de la arquitectura del modelo](#11-arquitectura-del-modelo)
-    - [2\) Impacto de los *Class Weights* en las palabras](#12-class-weights-sobre-las-palabras) 
+    - [2\) Impacto de los *Class Weights* en las palabras](#12-class-weights-sobre-las-palabras)
 
 ---
 
