@@ -479,7 +479,8 @@ $$
 \Delta \log P_{\text{seq}} \ge 0.8
 $$
 
-  - Utilizando la fórmula logarítmica anterior:<br>
+  - Utilizando la fórmula logarítmica anterior:
+
 $$
 \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
 $$
