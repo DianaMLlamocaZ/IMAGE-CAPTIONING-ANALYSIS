@@ -475,24 +475,24 @@ Dado que el modelo continuaba generando las mismas secuencias con variaciones ú
 - **Valor numérico (umbral) seleccionado para la diferencia de logaritmos**
   - Se tomaron únicamente los *tokens* cuya diferencia entre secuencias (que comparten una misma raíz a excepción del último *token*) es mayor o igual a 0.8:
   
-    $$
-    \Delta \log P_{\text{seq}} \ge 0.8
-    $$
+  $$
+  \Delta \log P_{\text{seq}} \ge 0.8
+  $$
 
   - Utilizando la fórmula logarítmica anterior:
-    $$
-    \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
-    $$
+  $$
+  \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
+  $$
 
 
   - Aplicando la función exponencial en ambos lados de la inecuación:  
-    $$
-    e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
-    $$
+  $$
+  e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
+  $$
   
-    $$
-    \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \ge e^{0.8} \approx 2.225
-    $$
+  $$
+  \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \ge e^{0.8} \approx 2.225
+  $$
 
 
 - **Interpretación**
