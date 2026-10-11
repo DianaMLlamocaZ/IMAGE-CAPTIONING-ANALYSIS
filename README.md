@@ -486,6 +486,7 @@ $$
   $$
 
   - Aplicando la función exponencial en ambos lados de la inecuación:<br>
+  
   $$
   e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
   $$
