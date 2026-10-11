@@ -466,6 +466,9 @@ $$
 \Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2}
 $$
 
-  - En ese sentido, y utilizando las propiedades de logaritmos, la diferencia de las secuencias en términos logarítmicos se reduce matemáticamente a una razón de probabilidades:
-    
+    - En ese sentido, y utilizando las propiedades de logaritmos, la diferencia de las secuencias en términos logarítmicos se reduce matemáticamente a una razón de probabilidades:
+
+$$
+\Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2} = \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)
+$$
     
