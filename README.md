@@ -438,3 +438,10 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
+
+---
+
+## 12) <ins> *CLASS WEIGHTS* SOBRE LAS PALABRAS</ins>
+
+Dado que el modelo continuaba generando las mismas secuencias con variaciones únicamente al final del *caption*, se optó por asignar *class weights* a las palabras en base a su frecuencia de aparición en la *loss function*
+
