@@ -550,4 +550,4 @@ $$
 ### 12.4) <ins>EVALUACIÓN</ins>
 
 #### 12.4.1) <ins>RENDIMIENTO GENERAL</ins>
-- Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando **class weights** sobre las palabras:
+- Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando ***class weights*** sobre las palabras:
