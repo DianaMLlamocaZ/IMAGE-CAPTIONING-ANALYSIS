@@ -480,11 +480,13 @@ $$
     $$
 
   - Utilizando la fórmula logarítmica anterior:
-  $$
-  \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
-  $$
+    
+    $$
+    \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
+    $$
 
   - Aplicando la función exponencial en ambos lados de la inecuación:
-  $$
-  e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
-  $$
+    
+    $$
+    e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
+    $$
