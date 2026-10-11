@@ -472,25 +472,31 @@ $$
 \Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2} = \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)
 $$
 
+
 - **Valor numérico (umbral) seleccionado para la diferencia de logaritmos**
   - Se tomaron únicamente los *tokens* cuya diferencia entre secuencias (que comparten una misma raíz a excepción del último *token*) es mayor o igual a 0.8. Es decir:
     
-  $$
-  \Delta \log P_{\text{seq}} \ge 0.8
-  $$
+$$
+\Delta \log P_{\text{seq}} \ge 0.8
+$$
 
   - Utilizando la fórmula logarítmica anterior:
     
-  $$
-    \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
-  $$
+$$
+\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
+$$
 
   - Aplicando la función exponencial en ambos lados de la inecuación:
     
 $$
-  e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
+e^{\log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)} \ge e^{0.8}
 $$
 
 $$
 \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \ge e^{0.8} \approx 2.225
 $$
+
+
+- **Interpretación**
+  - Un umbral de diferencia de 0.8 entre logaritmos de secuencias implica que el *token* 1 es, al menos, 2.225 veces más probable que el *token* 2.
+  - Esto permite cuantificar el sesgo del modelo hacia ciertos *tokens* y explicar, de manera indirecta, la falta de *diversidad* entre *captions* durante la generación de secuencias.
