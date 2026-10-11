@@ -503,7 +503,8 @@ $$
 
 
 #### 12.1.2) <ins>*TOKENS* CON PROBABILIDAD ALTA</ins>
-- A continuación, se muestra la gráfica de los *tokens* que presentan una probabilidad significativamente mayor (2 veces mayor) respecto a otros, durante la generación de *captions* de una imagen de la *data* de validación. Para ello, se utilizó el valor 0.8 como umbral entre la diferencia de los logaritmos de secuencias:
+- A continuación, se muestra la gráfica de los *tokens* que presentan una probabilidad significativamente mayor (2 veces mayor) respecto a otros, durante la generación de *captions* de una imagen de la *data* de validación.<br>
+  Para ello, se utilizó el valor 0.8 como umbral entre la diferencia de los logaritmos de secuencias; es decir, *tokens* con probabilidad 2 veces mayor:
 
 <div align="center">
   <img src="./Images/Tokens.JPG" width=350>
