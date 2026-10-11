@@ -455,5 +455,5 @@ Dado que el modelo continuaba generando las mismas secuencias con variaciones ú
   <img src="./Images/ProbabilidadesDiferenciaSecuencia.jpg" width=400>
 </div>
 
-- **¿Por qué se utilizó la diferencia de logaritmos entre secuencias de la misma raíz para identificar los *tokens* con alta probabilidad?**
+- **¿Por qué se utilizó la diferencia de logaritmos entre secuencias de la misma raíz para identificar a los *tokens* con alta probabilidad?**
 
