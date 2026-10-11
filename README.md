@@ -532,7 +532,7 @@ $$
 - Para comprobar numéricamente si el modelo está sesgado hacia las palabras frecuentes, se les asignó 'pesos', a cada una, generados a través de la siguiente fórmula:
 
 <div align="center">
-  <img src="./Images/ClassWeights.JPG" width=400>
+  <img src="./Images/ClassWeights.JPG" width=350>
 </div>
 
 > **NOTA:**<br>
