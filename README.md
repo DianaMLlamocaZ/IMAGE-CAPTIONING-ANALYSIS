@@ -439,9 +439,14 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
 
+
 ---
 
 ## 12) <ins> *CLASS WEIGHTS* SOBRE LAS PALABRAS</ins>
 
-Dado que el modelo continuaba generando las mismas secuencias con variaciones únicamente al final del *caption*, se optó por asignar *class weights* a las palabras en base a su frecuencia de aparición en la *loss function*
+Dado que el modelo continuaba generando las mismas secuencias con variaciones únicamente al final del *caption*, se optó por asignar *class weights* a las palabras, en base a su frecuencia de aparición, sobre la *loss function*
+
+### 12.1) <ins> VISUALIZACIÓN DE *TOKENS* PREDICHOS CON PROBABILIDAD MÁS ALTA</ins>
+
+- Con la finalidad de visualizar los *tokens* a los que el modelo asigna una probabilidad alta en comparación a otros (sesgo), se realizó la <ins>comparación por secuencias</ins> utilizando la **diferencia de sus logaritmos** de aquellas *sequences* que comparten una **raíz común**, a excepción del último token.
 
