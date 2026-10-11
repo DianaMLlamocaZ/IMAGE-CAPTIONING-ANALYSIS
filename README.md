@@ -438,7 +438,6 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
-- 
 
 ---
 
