@@ -551,3 +551,12 @@ $$
 
 #### 12.4.1) <ins>RENDIMIENTO GENERAL</ins>
 - Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando ***class weights*** sobre las palabras con **alfa=0.2**:
+
+| Estrategia de decodificación                                         | Métrica BLEU | Modelo inicial | Modelo 2 |
+|----------------------------------------------------------------------|--------------|----------------|----------|
+| *Greedy Search* y *Class Weight* (*alfa=0.2*)                        | BLEU-1       | 0.4768         | 0.5042   |
+| *Greedy Search* y *Class Weight* (*alfa=0.2*)                        | BLEU-2       | 0.2908         | 0.3183   |
+| *Greedy Search* y *Class Weight* (*alfa=0.2*)                        | BLEU-3       | 0.1745         | 0.1944   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-1       | 0.4661         | 0.4883   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-2       | 0.2807         | 0.2983   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-3       | 0.1751         | 0.1877   |
