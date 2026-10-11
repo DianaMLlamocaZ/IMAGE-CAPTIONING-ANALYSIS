@@ -534,3 +534,7 @@ $$
 <div align="center">
   <img src="./Images/ClassWeights.JPG" width=400>
 </div>
+
+> **NOTA:**<br>
+> - MaxFrec: Valor máximo de frecuencia absoluta registrado entre todos los *tokens* del vocabulario de la *data* de entrenamiento.
+> - Frec *i*: Frecuencia de aparición del *token* de índice *i*
