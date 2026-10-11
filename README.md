@@ -538,3 +538,9 @@ $$
 > **NOTA:**<br>
 > - MaxFrec: Valor máximo de frecuencia absoluta registrado entre todos los *tokens* del vocabulario de la *data* de entrenamiento.
 > - Frec *i*: Frecuencia de aparición del *token* de índice *i*
+
+- **Hiperparámetro alfa:** Controla la magnitud de los pesos.
+  - **alfa = 1**: Sin escala (los *tokens* poco frecuentes pueden tener pesos desbalanceados).
+  - **alfa = 0**: Normaliza los pesos reduciendo la magnitud.
+  - **alfa cercano a 0**: Asigna un peso constante de 1 a todas las palabras (no normalización).
+  - **Rango óptimo [0.2,0.5]**: Normaliza los pesos equilibradamente sin perder la magnitud.
