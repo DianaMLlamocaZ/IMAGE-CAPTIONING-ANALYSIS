@@ -525,3 +525,8 @@ $$
 
 - **Interpretación:**
     - Curiosamente, las palabras (*tokens*) a las que el modelo asigna una probabilidad alta son las que presentan una mayor frecuencia de aparición en la *data* de entrenamiento.
+
+====
+
+### 1.3) <ins>ASIGNACIÓN DE *CLASS WEIGHTS* A LAS PALABRAS</ins>
+- 
