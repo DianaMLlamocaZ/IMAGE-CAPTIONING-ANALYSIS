@@ -448,5 +448,5 @@ Dado que el modelo continuaba generando las mismas secuencias con variaciones ú
 
 ### 12.1) <ins> VISUALIZACIÓN DE *TOKENS* PREDICHOS CON PROBABILIDAD MÁS ALTA</ins>
 
-- Con la finalidad de visualizar los *tokens* a los que el modelo asigna una probabilidad alta en comparación a otros (sesgo), se realizó la <ins>comparación por secuencias</ins> utilizando la **diferencia de sus logaritmos** de aquellas *sequences* que comparten una **raíz común**, a excepción del último token.
+- Con la finalidad de visualizar los *tokens* a los que el modelo asigna una probabilidad alta en comparación a otros (sesgo), se realizó la **comparación por secuencias** utilizando la **diferencia de sus logaritmos** de aquellas *sequences* que comparten una **raíz común**, a excepción del último token.
 
