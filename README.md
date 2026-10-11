@@ -545,6 +545,10 @@ $$
   - **alfa cercano a 0**: Asigna un peso constante de 1 a todas las palabras (no normalización).
   - **Rango óptimo [0.2,0.5]**: Normaliza los pesos equilibradamente sin perder la magnitud.
 
+- **Consideraciones:**
+  - El peso de los *tokens* especiales se estableció en 1.
+  - Para evitar pesos con valores *outliers*, los pesos iniciales se dividieron entre su media aritmética (manteniendo su magnitud), evitando desestabilización durante el entrenamiento.
+
 ====
 
 ### 12.4) <ins>EVALUACIÓN</ins>
