@@ -461,3 +461,7 @@ Dado que el modelo continuaba generando las mismas secuencias con variaciones ú
 $$
 \Delta \log P_{\text{seq}} = (\log P_{\text{raíz}} + \log P_{\text{token}_1}) - (\log P_{\text{raíz}} + \log P_{\text{token}_2})
 $$
+
+$$
+\Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2}
+$$
