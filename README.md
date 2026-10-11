@@ -508,3 +508,7 @@ $$
 <div align="center">
   <img src="./Images/Tokens.JPG" width=350>
 </div>
+
+<p align="center">
+  <sub>Frecuencia de aparición de *tokens* con probabilidad 2 veces mayor durante la generación del *caption* de muestra</sub>
+</p>
