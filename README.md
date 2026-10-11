@@ -522,3 +522,6 @@ $$
 <div align="center">
   <img src="./Images/PalabrasFrecuentes.JPG" width=450>
 </div>
+
+- **Interpretación:**
+    - Curiosamente, las palabras (*tokens*) a las que el modelo asigna una probabilidad alta son las que presentan una mayor frecuencia de aparición en la *data* de entrenamiento.
