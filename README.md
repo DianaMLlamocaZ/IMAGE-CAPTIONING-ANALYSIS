@@ -528,7 +528,7 @@ $$
 
 ====
 
-### 1.3) <ins>ASIGNACIÓN DE *CLASS WEIGHTS* A LAS PALABRAS</ins>
+### 12.3) <ins>ASIGNACIÓN DE *CLASS WEIGHTS* A LAS PALABRAS</ins>
 - Para comprobar numéricamente si el modelo está sesgado hacia las palabras frecuentes, se les asignó 'pesos', a cada una, generados a través de la siguiente fórmula:
 
 <div align="center">
@@ -544,3 +544,10 @@ $$
   - **alfa = 0**: Normaliza los pesos reduciendo la magnitud.
   - **alfa cercano a 0**: Asigna un peso constante de 1 a todas las palabras (no normalización).
   - **Rango óptimo [0.2,0.5]**: Normaliza los pesos equilibradamente sin perder la magnitud.
+
+====
+
+### 12.4) <ins>EVALUACIÓN</ins>
+
+#### 12.4.1) <ins>RENDIMIENTO GENERAL</ins>
+- Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando **class weights** sobre las palabras:
