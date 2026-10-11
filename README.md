@@ -458,15 +458,15 @@ Dado que el modelo continuaba generando las mismas secuencias con variaciones ú
 - **¿Por qué se utilizó la diferencia de logaritmos entre secuencias de la misma raíz para identificar a los *tokens* con alta probabilidad?**
   - Porque la resta de las secuencias termina siendo la diferencia de log-probabilidades entre los *tokens* condicionales (último *token* de cada secuencia):
     
-$$
-\Delta \log P_{\text{seq}} = (\log P_{\text{raíz}} + \log P_{\text{token}_1}) - (\log P_{\text{raíz}} + \log P_{\text{token}_2})
-$$
+  $$
+  \Delta \log P_{\text{seq}} = (\log P_{\text{raíz}} + \log P_{\text{token}_1}) - (\log P_{\text{raíz}} + \log P_{\text{token}_2})
+  $$
+  
+  $$
+  \Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2}
+  $$
 
-$$
-\Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2}
-$$
-
-    - En ese sentido, y utilizando las propiedades de logaritmos, la diferencia de las secuencias en términos logarítmicos se reduce matemáticamente a una razón de probabilidades:
+  - En ese sentido, y utilizando las propiedades de logaritmos, la diferencia de las secuencias en términos logarítmicos se reduce matemáticamente a una razón de probabilidades:
 
 $$
 \Delta \log P_{\text{seq}} = \log P_{\text{token}_1} - \log P_{\text{token}_2} = \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right)
