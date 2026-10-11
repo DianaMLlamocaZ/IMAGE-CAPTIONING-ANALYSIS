@@ -514,6 +514,7 @@ $$
   <sub>Frecuencia de aparición de <em>tokens</em> con probabilidad 2 veces mayor durante la generación del <em>caption</em> de muestra</sub>
 </p>
 
+====
 
 ### 12.2) <ins>ANÁLISIS EXPLORATORIO DE DATOS (EDA)</ins>
 - Con el objetivo de visualizar si los *tokens* con 'mayor probabilidad' tienen una frecuencia de aparición alta en el *dataset* de entrenamiento, se realizó el análisis exploratorio de datos que permite visualizar las palabras más frecuentes en dicho conjunto de datos, obteniendo los siguientes resultados:
