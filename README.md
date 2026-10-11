@@ -500,3 +500,8 @@ $$
 - **Interpretación**
   - Un umbral de diferencia de 0.8 entre logaritmos de secuencias implica que el *token* 1 es, al menos, 2.225 veces más probable que el *token* 2.
   - Esto permite cuantificar el sesgo del modelo hacia ciertos *tokens* y explicar, de manera indirecta, la falta de *diversidad* entre *captions* durante la generación de secuencias.
+
+
+#### 12.1.2) <ins>*TOKENS* CON PROBABILIDAD ALTA</ins>
+- A continuación, se muestra la gráfica de los *tokens* que presentan una probabilidad significativamente mayor (2 veces mayor) respecto a otros, durante la generación de *captions* de una imagen de la *data* de validación:
+  
