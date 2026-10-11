@@ -475,6 +475,12 @@ $$
 - **Valor numérico (umbral) seleccionado para la diferencia de logaritmos**
   - Se tomaron únicamente los *tokens* cuya diferencia entre secuencias (que comparten una misma raíz a excepción del último *token*) es mayor o igual a 0.8. Es decir:
 
-$$
-\Delta \log P_{\text{seq}} \ge 0.8
-$$
+  $$
+  \Delta \log P_{\text{seq}} \ge 0.8
+  $$
+
+  - Aplicando la fórmula logarítmica anterior:
+
+  $$
+  \log \left( \frac{P_{\text{token}_1}}{P_{\text{token}_2}} \right) \ge 0.8
+  $$
