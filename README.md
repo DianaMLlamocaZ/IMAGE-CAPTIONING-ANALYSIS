@@ -628,18 +628,16 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ### 13.2) <ins>RENDIMIENTO GENERAL</ins>
 
+#### 13.2.1) <ins>*GREEDY SEARCH*<ins>
+
 <div align="center">
 
-  | Estrategia de decodificación   | Métrica BLEU | Modelo inicial<br>(Sin Class Weight) | Modelo 2<br>(Sin Class Weight) | Modelo inicial<br> (Con Class Weight 0.2) | Modelo 2<br> (Con Class Weight 0.2) |
+| Estrategia de decodificación   | Métrica BLEU | Modelo inicial<br>(Sin Class Weight) | Modelo 2<br>(Sin Class Weight) | Modelo inicial<br> (Con Class Weight 0.2) | Modelo 2<br> (Con Class Weight 0.2) |
 |--------------------------------|:------------:|:------------------------------------:|:------------------------------:|-------------------------------------------|-------------------------------------|
 | *Greedy Search*                | BLEU-1       | 0.4185                               | 0.4949                         | 0.4768                                    | 0.5042                              |
 | *Greedy Search*                | BLEU-2       | 0.2577                               | 0.3163                         | 0.2908                                    | 0.3183                              |
 | *Greedy Search*                | BLEU-3       | 0.1553                               | 0.1975                         | 0.1745                                    | 0.1944                              |
 | *Greedy Search*                | BLEU-4       | 0.0946                               | 0.1233                         | 0.1044                                    | 0.1196                              |
-| *Beam Search* (*beam width*=4) | BLEU-1       | 0.4642                               | 0.5343                         | 0.4661                                    | 0.4883                              |
-| *Beam Search* (*beam width*=4) | BLEU-2       | 0.2784                               | 0.3457                         | 0.2807                                    | 0.2983                              |
-| *Beam Search* (*beam width*=4) | BLEU-3       | 0.1740                               | 0.2227                         | 0.1751                                    | 0.1877                              |
-| *Beam Search* (*beam width*=4) | BLEU-4       | 0.1111                               | 0.1445                         | 0.1098                                    | 0.1173                              |
   
 </div>
 
