@@ -603,3 +603,25 @@ $$
 | *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa*=0.2) | SELF BLEU-4               | 0.7623         | 0.7703   |
   
 </div>
+
+----
+
+## 13) <ins>COMPARACIÓN DE ENFOQUES Y RESULTADOS</ins>
+
+Con la finalidad de interpretar los resultados obtenidos e identificar qué enfoque tuvo mayor impacto en la diversidad de generación de *captions*, se realizó la comparación entre ambos métodos:
+
+### 13.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
+
+| **Hiperparámetros**   | **Modelo inicial** | **Modelo 2** |
+|-----------------------|--------------------|--------------|
+| embed_img_size        | 256                | 256          |
+| embed_caption_size    | 256                | 256          |
+| **hidden_size (GRU)** | **128**            | **256**      |
+| num_layers (GRU)      | 1                  | 1            |
+| l_r_img_model         | 1e-5               | 1e-5         |
+| l_r_dec_model         | 5e-4               | 5e-4         |
+| Early Stopping        | Sí                 | Sí           |
+
+
+### 13.2) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
+- Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
