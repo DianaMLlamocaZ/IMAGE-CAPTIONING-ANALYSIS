@@ -628,3 +628,15 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ### 13.2) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
 - Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
+
+<div align="center">
+
+| Métrica SELF-BLEU Score | Sin Class Weights | Sin Class Weights | Con Class Weights (*alfa*=0.2) | Con Class Weights (*alfa*=0.2) |
+|-------------------------|-------------------|-------------------|--------------------------------|--------------------------------|
+| Modelos                 | Modelo inicial    | Modelo 2          | Modelo inicial                 | Modelo 2                       |
+| SELF-BLEU 1             | 0.8845            | 0.8704            | 0.8464                         | 0.8523                         |
+| SELF-BLEU 2             | 0.8618            | 0.8395            | 0.8169                         | 0.8246                         |
+| SELF-BLEU 3             | 0.8385            | 0.8145            | 0.7912                         | 0.7998                         |
+| SELF-BLEU 4             | 0.8152            | 0.7873            | 0.7623                         | 0.7703                         |
+  
+</div>
