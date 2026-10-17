@@ -642,6 +642,20 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 </div>
 
 
+#### 13.2.2) <ins>*BEAM SEARCH*<ins>
+
+<div align="center">
+  
+| Estrategia de decodificación   | Métrica BLEU | Modelo inicial<br>(Sin Class Weight) | Modelo 2<br>(Sin Class Weight) | Modelo inicial<br> (Con Class Weight 0.2) | Modelo 2<br> (Con Class Weight 0.2) |
+|--------------------------------|:------------:|:------------------------------------:|:------------------------------:|-------------------------------------------|-------------------------------------|
+| *Beam Search* (*beam width*=4) | BLEU-1       | 0.4642                               | 0.5343                         | 0.4661                                    | 0.4883                              |
+| *Beam Search* (*beam width*=4) | BLEU-2       | 0.2784                               | 0.3457                         | 0.2807                                    | 0.2983                              |
+| *Beam Search* (*beam width*=4) | BLEU-3       | 0.1740                               | 0.2227                         | 0.1751                                    | 0.1877                              |
+| *Beam Search* (*beam width*=4) | BLEU-4       | 0.1111                               | 0.1445                         | 0.1098                                    | 0.1173                              |
+
+</div>
+
+
 ### 13.3) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
 - Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
 
