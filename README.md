@@ -641,6 +641,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
   
 </div>
 
+====
 
 #### 13.2.2) <ins>*BEAM SEARCH*<ins>
 
@@ -655,6 +656,9 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 </div>
 
+> **NOTA:** A mayor valor, mejor rendimiento general del *caption* generado sobre los *captions* reales.
+
+====
 
 ### 13.3) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
 - Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
@@ -670,3 +674,5 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 | SELF-BLEU 4             | 0.8152             | 0.7873            | 0.7623                         | 0.7703                         |
   
 </div>
+
+> **NOTA:** A menor valor, mayor diversidad entre los *captions* generados para cada imagen.
