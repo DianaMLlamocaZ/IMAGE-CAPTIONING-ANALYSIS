@@ -575,6 +575,8 @@ $$
 #### 12.4.1) <ins>RENDIMIENTO GENERAL</ins>
 - Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando ***class weights*** sobre las palabras con **alfa=0.2**:
 
+<div align="center">
+  
 | Estrategia de decodificación                                         | Métrica BLEU | Modelo inicial | Modelo 2 |
 |----------------------------------------------------------------------|--------------|----------------|----------|
 | *Greedy Search* y *Class Weight* (*alfa=0.2*)                        | BLEU-1       | 0.4768         | 0.5042   |
@@ -585,3 +587,19 @@ $$
 | *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-2       | 0.2807         | 0.2983   |
 | *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-3       | 0.1751         | 0.1877   |
 | *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa=0.2*) | BLEU-4       | 0.1098         | 0.1173   |
+
+</div>
+
+#### 12.4.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
+- Cuantifica la diversidad de *captions* generados sobre cada imagen, en el *dataset* de validación, utilizando ***class weights*** sobre las palabras con **alfa=0.2**, a través de la métrica *Self BLEU-Score*: 
+
+<div align="center">
+
+| Estrategia de decodificación                                         | Métrica SELF - BLEU SCORE | Modelo inicial | Modelo 2 |
+|----------------------------------------------------------------------|---------------------------|----------------|----------|
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa*=0.2) | SELF BLEU-1               | 0.8464         | 0.8523   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa*=0.2) | SELF BLEU-2               | 0.8169         | 0.8246   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa*=0.2) | SELF BLEU-3               | 0.7912         | 0.7998   |
+| *Vanilla Beam Search* (*beam width*=4) y *Class Weight* (*alfa*=0.2) | SELF BLEU-4               | 0.7623         | 0.7703   |
+  
+</div>
