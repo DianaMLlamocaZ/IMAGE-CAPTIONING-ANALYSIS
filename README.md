@@ -454,8 +454,7 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 </div>
 
-> **NOTA:**
-> - Mientras más cercano a 0 sea el valor de la métrica *Self BLEU-Score*, más diverso son los *captions* generados sobre cada imagen en el *dataset* de validación. 
+> **NOTA:** Mientras más cercano a 0 sea el valor de la métrica *Self BLEU-Score*, más diversos son los *captions* generados sobre cada imagen en el *dataset* de validación. 
 
 ---
 
