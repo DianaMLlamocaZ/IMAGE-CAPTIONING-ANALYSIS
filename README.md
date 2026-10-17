@@ -657,7 +657,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 </div>
 
-> **NOTA:** A mayor valor, mejor rendimiento general del *caption* generado sobre los *captions* reales.
+> **NOTA:** Valores más altos indican mejor rendimiento en alineación semántica y precisión del *caption* generado de mayor probabilidad conjunta respecto a los *captions* de referencia.
 
 ====
 
