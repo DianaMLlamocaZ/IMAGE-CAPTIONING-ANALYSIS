@@ -612,6 +612,8 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ### 13.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
 
+<div>
+
 | **Hiperparámetros**   | **Modelo inicial** | **Modelo 2** |
 |-----------------------|--------------------|--------------|
 | embed_img_size        | 256                | 256          |
@@ -622,6 +624,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 | l_r_dec_model         | 5e-4               | 5e-4         |
 | Early Stopping        | Sí                 | Sí           |
 
+</div>
 
 ### 13.2) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
 - Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
