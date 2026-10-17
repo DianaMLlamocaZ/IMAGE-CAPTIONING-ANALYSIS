@@ -612,7 +612,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ### 13.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
 
-<div>
+<div align="center">
 
 | **Hiperparámetros**   | **Modelo inicial** | **Modelo 2** |
 |-----------------------|--------------------|--------------|
