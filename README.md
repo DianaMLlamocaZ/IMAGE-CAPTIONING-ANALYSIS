@@ -422,9 +422,11 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 | *Greedy Search*                        | BLEU-1       | 0.4185         | 0.4949   |
 | *Greedy Search*                        | BLEU-2       | 0.2577         | 0.3163   |
 | *Greedy Search*                        | BLEU-3       | 0.1553         | 0.1975   |
+| *Greedy Search*                        | BLEU-4       | 0.0946         | 0.1233   |
 | *Vanilla Beam Search* (*beam width*=4) | BLEU-1       | 0.4642         | 0.5343   |
 | *Vanilla Beam Search* (*beam width*=4) | BLEU-2       | 0.2784         | 0.3457   |
 | *Vanilla Beam Search* (*beam width*=4) | BLEU-3       | 0.1740         | 0.2227   |
+| *Vanilla Beam Search* (*beam width*=4) | BLEU-4       | 0.1111         | 0.1445   |
 
 </div>
 
@@ -438,6 +440,9 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
+
+- Cuantifica la diversidad de *captions* generados, en el *dataset* de validación, a través de la métrica *Self BLEU-Score*:
+
 
 ---
 
