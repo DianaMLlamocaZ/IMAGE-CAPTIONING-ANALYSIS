@@ -441,7 +441,14 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 #### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
 
-- Cuantifica la diversidad de *captions* generados, en el *dataset* de validación, a través de la métrica *Self BLEU-Score*:
+- Cuantifica la diversidad de *captions* generados sobre cada imagen, en el *dataset* de validación, a través de la métrica *Self BLEU-Score*:
+
+| Estrategia de decodificación           | Métrica SELF - BLEU SCORE | Modelo inicial | Modelo 2 |
+|----------------------------------------|---------------------------|----------------|----------|
+| *Vanilla Beam Search* (*beam width*=4) | SELF BLEU-1               | 0.8845         | 0.8704   |
+| *Vanilla Beam Search* (*beam width*=4) | SELF BLEU-2               | 0.8618         | 0.8395   |
+| *Vanilla Beam Search* (*beam width*=4) | SELF BLEU-3               | 0.8385         | 0.8145   |
+| *Vanilla Beam Search* (*beam width*=4) | SELF BLEU-4               | 0.8152         | 0.7873   |
 
 
 ---
