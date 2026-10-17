@@ -626,6 +626,8 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 </div>
 
+====
+
 ### 13.2) <ins>RENDIMIENTO GENERAL</ins>
 
 #### 13.2.1) <ins>*GREEDY SEARCH*<ins>
@@ -641,7 +643,6 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
   
 </div>
 
-====
 
 #### 13.2.2) <ins>*BEAM SEARCH*<ins>
 
