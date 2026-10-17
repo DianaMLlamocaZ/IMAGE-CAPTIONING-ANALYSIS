@@ -646,7 +646,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 <div align="center">
   
-| Estrategia de decodificación   | Métrica BLEU | Modelo inicial<br>(Sin Class Weight) | Modelo 2<br>(Sin Class Weight) | Modelo inicial<br> (Con Class Weight 0.2) | Modelo 2<br> (Con Class Weight 0.2) |
+| Estrategia de decodificación   | Métrica BLEU | Modelo inicial (Sin Class Weight) | Modelo 2 (Sin Class Weight) | Modelo inicial (Con Class Weight 0.2) | Modelo 2 (Con Class Weight 0.2) |
 |--------------------------------|:------------:|:------------------------------------:|:------------------------------:|-------------------------------------------|-------------------------------------|
 | *Beam Search* (*beam width*=4) | BLEU-1       | 0.4642                               | 0.5343                         | 0.4661                                    | 0.4883                              |
 | *Beam Search* (*beam width*=4) | BLEU-2       | 0.2784                               | 0.3457                         | 0.2807                                    | 0.2983                              |
