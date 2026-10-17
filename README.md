@@ -669,11 +669,11 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 | Métrica SELF-BLEU Score |  Sin Class Weights | Sin Class Weights | Con Class Weights (*alfa*=0.2) | Con Class Weights (*alfa*=0.2) |
 |-------------------------|:------------------:|:-----------------:|:------------------------------:|:------------------------------:|
 |       **Modelos**       | **Modelo inicial** |    **Modelo 2**   |       **Modelo inicial**       |          **Modelo 2**          |
-| SELF-BLEU 1             | 0.8845             | 0.8704            | 0.8464                         | 0.8523                         |
-| SELF-BLEU 2             | 0.8618             | 0.8395            | 0.8169                         | 0.8246                         |
-| SELF-BLEU 3             | 0.8385             | 0.8145            | 0.7912                         | 0.7998                         |
-| SELF-BLEU 4             | 0.8152             | 0.7873            | 0.7623                         | 0.7703                         |
+| SELF-BLEU 1 (*beam width*=4)             | 0.8845             | 0.8704            | 0.8464                         | 0.8523                         |
+| SELF-BLEU 2 (*beam width*=4)            | 0.8618             | 0.8395            | 0.8169                         | 0.8246                         |
+| SELF-BLEU 3 (*beam width*=4)           | 0.8385             | 0.8145            | 0.7912                         | 0.7998                         |
+| SELF-BLEU 4 (*beam width*=4)            | 0.8152             | 0.7873            | 0.7623                         | 0.7703                         |
   
 </div>
 
-> **NOTA:** A menor valor, mayor diversidad entre los *captions* generados para cada imagen.
+> **NOTA:** A menor valor, mayor diversidad entre los *beams* de *captions* generados para cada imagen.
