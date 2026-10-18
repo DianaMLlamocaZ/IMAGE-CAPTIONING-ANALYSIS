@@ -231,7 +231,7 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
 
 #### 8.2.2) <ins>BEAM SEARCH</ins>
 
-- En cada paso *‘t’* se seleccionan las *'n'* secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
+- En cada paso *‘t’* se seleccionan las *'n'* (*beam width*) secuencias con mayor probabilidad conjunta a partir de los candidatos, generando los *active beams* (*beams* activos):
 
 <p align="center">
   <img src="./Images/BeamSearch.jpg" width=400>
