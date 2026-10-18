@@ -608,7 +608,7 @@ $$
 
 ## 13) <ins>COMPARACIÓN DE ENFOQUES Y RESULTADOS</ins>
 
-Con la finalidad de interpretar los resultados obtenidos e identificar qué enfoque tuvo mayor impacto en la diversidad de generación de *captions*, se realizó la comparación entre ambos métodos:
+Con la finalidad de interpretar los resultados obtenidos e identificar qué enfoque tuvo mayor impacto en la diversidad de generación de *captions*, se realizó la comparación entre ambos métodos en la *data* de validación:
 
 ### 13.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
 
