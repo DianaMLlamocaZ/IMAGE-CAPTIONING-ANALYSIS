@@ -700,3 +700,14 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 #### 13.4.2) <ins>IMPACTO DEL *CLASS WEIGHT* SEGÚN LA ESTRATEGIA DE DECODIFICACIÓN</ins>
 
 - **GREEDY SEARCH:**
+  - **Modelo inicial:**
+    - El **modelo inicial**, de menor complejidad arquitectónica, presentó mejoras significativas en la métrica *BLEU-Score* al utilizar *class weights* con la estrategia de decodificación *Greedy Search* en comparación a sí mismo sin *class weights*.
+    - El **modelo inicial** con *class weights* obtuvo similar rendimiento en la métrica *BLEU-Score* que el **modelo 2** sin *class weights*.
+
+  - **Modelo 2:**
+    - El **modelo 2** no presentó mejoras significativas en la métrica *BLEU-Score* al utilizar *class weights* con la estrategia de decodificación *Greedy Search*.
+   
+  - **Resultados:**
+    - El **modelo inicial** presentó similar rendimiento en la métrica *BLEU-Score* que el **modelo 2** sin *class weights*, utilizando la estrategia de decodificación *Greedy Search*.
+    - Aplicar *class weight* en el **modelo 2** no mejoró significativamente la calidad en la generación de los *captions* del enfoque *Greedy*.
+    - Es decir, la aplicación de *class weights* posibilita que la arquitectura de menor complejidad alcance, de manera similar, el rendimiento del modelo más complejo en la decodificación *Greedy*. En cambio, en arquitecturas más complejas su efecto es neutro.
