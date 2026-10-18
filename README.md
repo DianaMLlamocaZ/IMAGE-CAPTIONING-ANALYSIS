@@ -695,3 +695,8 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 **Resultados:**
 - La complejidad arquitectónica del modelo influyó, significativamente, en la mejora de la calidad sintáctica y en la diversidad de *captions* generados para cada imagen.
+
+
+#### 13.4.2) <ins>IMPACTO DEL *CLASS WEIGHT* SEGÚN LA ESTRATEGIA DE DECODIFICACIÓN</ins>
+
+**Greedy Search:**
