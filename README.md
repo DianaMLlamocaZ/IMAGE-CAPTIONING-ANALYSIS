@@ -708,4 +708,4 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
     - El **modelo 2** no presentó mejoras significativas en la métrica *BLEU-Score* al utilizar *class weights* con la estrategia de decodificación *Greedy Search*.
    
   - **Resultados:**
-    - La aplicación de *class weights* posibilita que la arquitectura de menor complejidad alcance, de manera similar, el rendimiento del modelo más complejo en la decodificación *Greedy*. En cambio, en arquitecturas más complejas su efecto es neutro.
+    - La aplicación de *class weights* posibilita que la arquitectura de menor complejidad alcance, de manera similar, el rendimiento del modelo más complejo en la decodificación *Greedy*. En cambio, en arquitecturas más complejas, su efecto es neutro.
