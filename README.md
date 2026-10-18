@@ -677,3 +677,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 </div>
 
 > **NOTA:** A menor valor, mayor diversidad entre los *beams* de *captions* generados para cada imagen.
+
+====
+
+### 13.4) <ins>RESUMEN DE RESULTADOS EN EL CONJUNTO DE VALIDACIÓN</ins>
