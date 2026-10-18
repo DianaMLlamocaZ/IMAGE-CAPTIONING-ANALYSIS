@@ -720,3 +720,17 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
   - **Resultados:**
     - En arquitecturas más complejas, el uso de *class weights* puede alterar el rendimiento del modelo, disminuyendo los valores de la métrica *BLEU-Score* al combinarse con la estrategia de decodificación *Beam Search*, a diferencia del enfoque *Greedy*.
+
+
+#### 13.4.2) <ins>DIVERSIDAD ENTRE LOS *CAPTIONS* GENERADOS</ins>
+
+Para evaluar la diversidad de secuencias, se generaron 4 *captions* para cada imagen (*beam width*=4) del *dataset* de validación, calculando el *SELF BLEU-Score* sobre las variantes producidas.
+
+- **Modelo inicial**:
+  - El **modelo inicial** necesitó de la aplicación de *class weights* para generar *captions* diversos sobre una misma imagen.
+
+- **Modelo 2:**
+  - El **modelo 2**, al utilizar *class weights*, no presentó una reducción significativa en la métrica *SELF BLEU-Score* en comparación a sí mismo sin *class weights*.
+ 
+- **Resultados:**
+  - El modelo de menor complejidad arquitectónica necesitó de la aplicación de *class weights* para generar *captions* más diversos, mientras que el modelo de mayor complejidad obtuvo 'mayor' diversidad de manera inherente sin *class weights*.
