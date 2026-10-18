@@ -684,17 +684,17 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 #### 13.4.1) <ins>EFECTO DE LA COMPLEJIDAD ARQUITECTÓNICA EN LA CALIDAD DEL *CAPTION*</ins>
 
-**Greedy Search:**
-- El **modelo 2** sin *class weight*, de mayor complejidad arquitectónica que utiliza 256 dimensiones para la representación del *hidden state*, presentó *mejor rendimiento* en la *métrica BLEU-Score* empleando el enfoque *Greedy*, en comparación al *modelo inicial*.
+- **Greedy Search:**
+  - El **modelo 2** sin *class weight*, de mayor complejidad arquitectónica que utiliza 256 dimensiones para la representación del *hidden state*, presentó *mejor rendimiento* en la *métrica BLEU-Score* empleando el enfoque *Greedy*, en comparación al *modelo inicial*.
 
-**Beam Search:**
-- El **modelo 2** sin *class weight* presentó, de igual manera, *mejor rendimiento* en la *métrica BLEU-Score* en comparación al *modelo inicial*.
+- **Beam Search:**
+  - El **modelo 2** sin *class weight* presentó, de igual manera, *mejor rendimiento* en la *métrica BLEU-Score* en comparación al *modelo inicial*.
 
-**SELF BLEU-Score:**
-- El **modelo 2** sin *class weight* obtuvo menor valor en la métrica *SELF-BLEU Score* que el *modelo inicial*, indicando cuantitativamente la reducción de la similitud entre los *captions* generados para cada imagen.
+- **SELF BLEU-Score:**
+  - El **modelo 2** sin *class weight* obtuvo menor valor en la métrica *SELF-BLEU Score* que el *modelo inicial*, indicando cuantitativamente la reducción de la similitud entre los *captions* generados para cada imagen.
 
-**Resultados:**
-- La complejidad arquitectónica del modelo influyó, significativamente, en la mejora de la calidad sintáctica y en la diversidad de *captions* generados para cada imagen.
+- **Resultados:**
+  - La complejidad arquitectónica del modelo influyó, significativamente, en la mejora de la calidad sintáctica y en la diversidad de *captions* generados para cada imagen.
 
 
 #### 13.4.2) <ins>IMPACTO DEL *CLASS WEIGHT* SEGÚN LA ESTRATEGIA DE DECODIFICACIÓN</ins>
