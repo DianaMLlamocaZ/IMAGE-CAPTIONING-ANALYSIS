@@ -733,4 +733,4 @@ Para evaluar la diversidad de secuencias, se generaron 4 *captions* para cada im
   - El **modelo 2**, al utilizar *class weights*, no presentó una reducción significativa en la métrica *SELF BLEU-Score* en comparación a sí mismo sin *class weights*.
  
 - **Resultados:**
-  - El modelo de menor complejidad arquitectónica necesitó de la aplicación de *class weights* para generar *captions* más diversos, mientras que el modelo de mayor complejidad obtuvo 'mayor' diversidad de manera inherente sin *class weights*.
+  - El modelo de menor complejidad arquitectónica necesitó de la aplicación de *class weights* para generar *captions* más diversos, mientras que el modelo de mayor complejidad obtuvo más diversidad de manera inherente sin *class weights*.
