@@ -713,3 +713,10 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 - **BEAM SEARCH:**
   - **Modelo inicial:**
+    - El **modelo inicial** no presentó mejoras significativas al utilizar *class weights* con la estrategia de decodificación *Beam Search* en comparación a sí mismo sin *class weights*, pues las métricas *BLEU-Score* fueron casi constantes al comparar ambos enfoques.
+
+  - **Modelo 2:**
+    - El **modelo 2** presentó, incluso, un rendimiento más bajo al utilizar *class weights* con la estrategia de decodificación *Beam Search* en comparación a sí mismo sin *class weights*
+
+  - **Resultados:**
+    - En arquitecturas más complejas, el uso de *class weights* puede alterar el rendimiento del modelo, disminuyendo los valores de la métrica *BLEU-Score* al combinarse con la estrategia de decodificación *Beam Search*, a diferencia del enfoque *Greedy*.
