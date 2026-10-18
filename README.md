@@ -681,3 +681,5 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 ====
 
 ### 13.4) <ins>RESUMEN DE RESULTADOS EN EL CONJUNTO DE VALIDACIÓN</ins>
+
+#### 13.4.1)<ins>EFECTO DE LA COMPLEJIDAD ARQUITECTÓNICA EN LA CALIDAD DEL *CAPTION*</ins>
