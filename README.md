@@ -56,6 +56,7 @@ El preprocesamiento de las imágenes se realizó de acuerdo al modelo *Inception
 
 <p align="center">
   <img src="./Images/PreprocesamientoImagen.jpg">
+  <sub>Preprocesamiento de imágenes</sub>
 </p>
 
 <p align="center">
