@@ -221,6 +221,8 @@ En la etapa de inferencia, es decir, generación de *captions*, se utilizaron lo
   <img src="./Images/GreedySearch.jpg" width=400>
 </p>
 
+====
+
 ### 8.2) <ins>VANILLA BEAM SEARCH (*length normalization*)</ins>
 
 #### 8.2.1) <ins>PROBABILIDAD CONJUNTA</ins>
