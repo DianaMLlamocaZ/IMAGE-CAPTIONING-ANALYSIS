@@ -295,7 +295,11 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ----
 
-## 9) <ins>MODELO ENTRENADO INICIAL</ins>
+## 9) <ins>MÉTRICA DE EVALUACIÓN: *BLEU SCORE*</ins>
+
+----
+
+## 10) <ins>MODELO ENTRENADO INICIAL</ins>
 - Inicialmente, se entrenó el modelo con los siguientes hiperparámetros:
 
 <div align="center">
@@ -323,12 +327,12 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 ----
 
-## 10) <ins>DISEÑO EXPERIMENTAL</ins>
+## 11) <ins>DISEÑO EXPERIMENTAL</ins>
 
-### 10.1) <ins>*BEAM SEARCH*: *CAPTIONS GENERADOS*</ins>
+### 11.1) <ins>*BEAM SEARCH*: *CAPTIONS GENERADOS*</ins>
 
 
-### 10.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
+### 11.2) <ins>*LOGITS*: *CLASIFFICATION LAYER*</ins>
 - Dado que el algoritmo *Beam Search* generaba *captions* similares, cambiando únicamente las palabras al final de la oración, se decidió visualizar los valores numéricos de la distribución de probabilidad de la capa de clasificación, obteniendo los siguientes resultados: 
 
 <p align="center">
@@ -359,11 +363,11 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
 
 
 
-### 10.3) <ins>PROBLEMA ENCONTRADO: PROBABILIDAD ALTA SOBRE CIERTOS *TOKENS*</ins>
+### 11.3) <ins>PROBLEMA ENCONTRADO: PROBABILIDAD ALTA SOBRE CIERTOS *TOKENS*</ins>
 
 - Debido al motivo anterior (probabilidades altas sobre ciertos *tokens*), se decidió utilizar un factor de escala '*temperature*' sobre los *logits*, antes de que se normalicen a un rango [0-1] (probabilidades) mediante la *SoftMax Function*, para uniformizar la distribución de probabilidad de la capa de clasificación y visualizar el efecto que tiene sobre las *captions* generadas del algoritmo *Vanilla Beam Search* con normalización por longitud:<br>
 
-#### **10.3.1) <ins>SOLUCIÓN 1: *TEMPERATURE* - *SOFTMAX FUNCTION*</ins>**
+#### **11.3.1) <ins>SOLUCIÓN 1: *TEMPERATURE* - *SOFTMAX FUNCTION*</ins>**
 
 - **FÓRMULA:**
 
@@ -396,11 +400,11 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
     
 ---
 
-## 11) <ins>ARQUITECTURA DEL MODELO</ins>
+## 12) <ins>ARQUITECTURA DEL MODELO</ins>
 
 Con la finalidad de identificar si la arquitectura del modelo impacta en el rendimiento general y en la diversidad de las secuencias generadas del algoritmo *Beam Search*, se entrenó y comparó la misma arquitectura utilizando diferentes hiperparámetros:
 
-### 11.1) <ins>HIPERPARÁMETROS</ins>
+### 12.1) <ins>HIPERPARÁMETROS</ins>
 <div align="center">
 
 | **Hiperparámetros**   | **Modelo inicial** | **Modelo 2** |
@@ -415,9 +419,9 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 </div>
 
-### 11.2) <ins>EVALUACIÓN</ins>
+### 12.2) <ins>EVALUACIÓN</ins>
 
-#### 11.2.1) <ins>RENDIMIENTO GENERAL</ins>
+#### 12.2.1) <ins>RENDIMIENTO GENERAL</ins>
 
 - Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación:
 
@@ -445,7 +449,7 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 > Para la evaluación de las *captions* generadas mediante el algoritmo *Vanilla Beam Search*, se seleccionó la secuencia generada con mayor probabilidad conjunta para cada imagen y se evaluó el desempeño global sobre todo el *dataset* de validación.
 
 
-#### 11.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
+#### 12.2.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
 
 - Cuantifica la diversidad de *captions* generados sobre cada imagen, en el *dataset* de validación, a través de la métrica *Self BLEU-Score*:
 
@@ -467,13 +471,13 @@ Con la finalidad de identificar si la arquitectura del modelo impacta en el rend
 
 ---
 
-## 12) <ins>*CLASS WEIGHTS* SOBRE LAS PALABRAS</ins>
+## 13) <ins>*CLASS WEIGHTS* SOBRE LAS PALABRAS</ins>
 
 Dado que el modelo continuaba generando las mismas secuencias con variaciones únicamente al final del *caption*, se optó por asignar *class weights* a las palabras, en base a su frecuencia de aparición, sobre la *loss function*
 
-### 12.1) <ins> VISUALIZACIÓN DE *TOKENS* PREDICHOS CON PROBABILIDAD MÁS ALTA</ins>
+### 13.1) <ins> VISUALIZACIÓN DE *TOKENS* PREDICHOS CON PROBABILIDAD MÁS ALTA</ins>
 
-#### 12.1.1) <ins>DIFERENCIA DE LOGARITMOS DE SECUENCIAS</ins>
+#### 13.1.1) <ins>DIFERENCIA DE LOGARITMOS DE SECUENCIAS</ins>
 - Con la finalidad de visualizar los *tokens* a los que el modelo asigna una probabilidad alta en comparación a otros (sesgo), se realizó la **comparación por secuencias** utilizando la **diferencia de sus logaritmos** de aquellas *sequences* que comparten una **raíz común**, a excepción del último *token*:
 
 <div align="center">
@@ -527,7 +531,7 @@ $$
   - Esto permite cuantificar el sesgo del modelo hacia ciertos *tokens* y explicar, de manera indirecta, la falta de *diversidad* entre *captions* durante la generación de secuencias.
 
 
-#### 12.1.2) <ins>*TOKENS* CON PROBABILIDAD ALTA</ins>
+#### 13.1.2) <ins>*TOKENS* CON PROBABILIDAD ALTA</ins>
 - A continuación, se muestra la gráfica de los *tokens* que presentan una probabilidad significativamente mayor (2 veces mayor) respecto a otros, durante la generación de *captions* de una imagen de la *data* de validación.<br>
   Para ello, se utilizó el valor 0.8 como umbral entre la diferencia de los logaritmos de secuencias; es decir, *tokens* con probabilidad 2 veces mayor:
 
@@ -541,7 +545,7 @@ $$
 
 ====
 
-### 12.2) <ins>ANÁLISIS EXPLORATORIO DE DATOS (EDA)</ins>
+### 13.2) <ins>ANÁLISIS EXPLORATORIO DE DATOS (EDA)</ins>
 - Con el objetivo de visualizar si los *tokens* con 'mayor probabilidad' tienen una frecuencia de aparición alta en el *dataset* de entrenamiento, se realizó el análisis exploratorio de datos que permite visualizar las palabras más frecuentes en dicho conjunto de datos, obteniendo los siguientes resultados:
 
 <div align="center">
@@ -553,7 +557,7 @@ $$
 
 ====
 
-### 12.3) <ins>ASIGNACIÓN DE *CLASS WEIGHTS* A LAS PALABRAS</ins>
+### 13.3) <ins>ASIGNACIÓN DE *CLASS WEIGHTS* A LAS PALABRAS</ins>
 - Para comprobar numéricamente si el modelo está sesgado hacia las palabras frecuentes, se les asignó 'pesos', a cada una, generados a través de la siguiente fórmula:
 
 <div align="center">
@@ -576,9 +580,9 @@ $$
 
 ====
 
-### 12.4) <ins>EVALUACIÓN</ins>
+### 13.4) <ins>EVALUACIÓN</ins>
 
-#### 12.4.1) <ins>RENDIMIENTO GENERAL</ins>
+#### 13.4.1) <ins>RENDIMIENTO GENERAL</ins>
 - Rendimiento general de la calidad sintáctica de la secuencia generada sobre las *captions* de referencia en el *dataset* de validación, utilizando ***class weights*** sobre las palabras con **alfa=0.2**:
 
 <div align="center">
@@ -596,7 +600,7 @@ $$
 
 </div>
 
-#### 12.4.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
+#### 13.4.2) <ins>DIVERSIDAD DE *CAPTIONS* GENERADOS</ins>
 - Cuantifica la diversidad de *captions* generados sobre cada imagen, en el *dataset* de validación, utilizando ***class weights*** sobre las palabras con **alfa=0.2**, a través de la métrica *Self BLEU-Score*: 
 
 <div align="center">
@@ -612,11 +616,11 @@ $$
 
 ----
 
-## 13) <ins>COMPARACIÓN DE ENFOQUES Y RESULTADOS</ins>
+## 14) <ins>COMPARACIÓN DE ENFOQUES Y RESULTADOS</ins>
 
 Con la finalidad de interpretar los resultados obtenidos e identificar qué enfoque tuvo mayor impacto en la diversidad de generación de *captions*, se realizó la comparación entre ambos métodos en la *data* de validación:
 
-### 13.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
+### 14.1) <ins>MODELOS E HIPERPARÁMETROS</ins>
 
 <div align="center">
 
@@ -634,9 +638,9 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ====
 
-### 13.2) <ins>RENDIMIENTO GENERAL</ins>
+### 14.2) <ins>RENDIMIENTO GENERAL</ins>
 
-#### 13.2.1) <ins>*GREEDY SEARCH*<ins>
+#### 14.2.1) <ins>*GREEDY SEARCH*<ins>
 
 <div align="center">
 
@@ -650,7 +654,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 </div>
 
 
-#### 13.2.2) <ins>*BEAM SEARCH*<ins>
+#### 14.2.2) <ins>*BEAM SEARCH*<ins>
 
 <div align="center">
   
@@ -667,7 +671,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ====
 
-### 13.3) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
+### 14.3) <ins>DIVERSIDAD DE *CAPTIONS* EN CADA ENFOQUE</ins>
 - Con la finalidad de cuantificar la diversidad de *captions* generados para cada imagen del *dataset* de validación, se utilizó la métrica *Self BLEU-Score*:
 
 <div align="center">
@@ -686,9 +690,9 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
 
 ====
 
-### 13.4) <ins>RESUMEN DE RESULTADOS EN EL CONJUNTO DE VALIDACIÓN</ins>
+### 14.4) <ins>RESUMEN DE RESULTADOS EN EL CONJUNTO DE VALIDACIÓN</ins>
 
-#### 13.4.1) <ins>EFECTO DE LA COMPLEJIDAD ARQUITECTÓNICA EN LA CALIDAD DEL *CAPTION*</ins>
+#### 14.4.1) <ins>EFECTO DE LA COMPLEJIDAD ARQUITECTÓNICA EN LA CALIDAD DEL *CAPTION*</ins>
 
 - **GREEDY SEARCH:**
   - El **modelo 2** sin *class weight*, de mayor complejidad arquitectónica que utiliza 256 dimensiones para la representación del *hidden state*, presentó *mejor rendimiento* en la *métrica BLEU-Score* empleando el enfoque *Greedy*, en comparación al *modelo inicial*.
@@ -703,7 +707,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
   - La complejidad arquitectónica del modelo influyó, significativamente, en la mejora de la calidad sintáctica y en la diversidad de *captions* generados para cada imagen.
 
 
-#### 13.4.2) <ins>IMPACTO DEL *CLASS WEIGHT* SEGÚN LA ESTRATEGIA DE DECODIFICACIÓN</ins>
+#### 14.4.2) <ins>IMPACTO DEL *CLASS WEIGHT* SEGÚN LA ESTRATEGIA DE DECODIFICACIÓN</ins>
 
 - **GREEDY SEARCH:**
   - **Modelo inicial:**
@@ -728,7 +732,7 @@ Con la finalidad de interpretar los resultados obtenidos e identificar qué enfo
     - En arquitecturas más complejas, el uso de *class weights* puede alterar el rendimiento del modelo, disminuyendo los valores de la métrica *BLEU-Score* al combinarse con la estrategia de decodificación *Beam Search*, a diferencia del enfoque *Greedy*.
 
 
-#### 13.4.3) <ins>DIVERSIDAD ENTRE LOS *CAPTIONS* GENERADOS</ins>
+#### 14.4.3) <ins>DIVERSIDAD ENTRE LOS *CAPTIONS* GENERADOS</ins>
 
 Para evaluar la diversidad de secuencias, se generaron 4 *captions* para cada imagen (*beam width*=4) del *dataset* de validación, calculando el *SELF BLEU-Score* sobre las variantes producidas.
 
@@ -742,6 +746,6 @@ Para evaluar la diversidad de secuencias, se generaron 4 *captions* para cada im
   - El modelo de menor complejidad arquitectónica necesitó de la aplicación de *class weights* para generar *captions* más diversos, mientras que el modelo de mayor complejidad obtuvo más diversidad de manera inherente sin *class weights*.
 
 
-#### 13.4.4) <ins>CONCLUSIÓN METODOLÓGICA</ins>
+#### 14.4.4) <ins>CONCLUSIÓN METODOLÓGICA</ins>
 
 - Las arquitecturas más simples requieren de la aplicación de *class weights* para ganar diversidad, mientras que los modelos más complejos logran mayor diversidad de manera inherente
