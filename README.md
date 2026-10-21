@@ -55,6 +55,7 @@ El preprocesamiento de las imágenes se realizó de acuerdo al modelo *Inception
   - Aplicación de normalización usando *mean*=[0.485,0.456,0.406] y *std*=[0.229,0.224,0.225] sobre los tres canales de la imagen, adaptado al modelo *Inception V3*.
 
 <p align="center">
+  <sub>Preprocesamiento de imágenes</sub>
   <img src="./Images/PreprocesamientoImagen.jpg">
   <sub>Preprocesamiento de imágenes</sub>
 </p>
