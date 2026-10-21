@@ -748,4 +748,4 @@ Para evaluar la diversidad de secuencias, se generaron 4 *captions* para cada im
 
 #### 14.4.4) <ins>CONCLUSIÓN METODOLÓGICA</ins>
 
-- Las arquitecturas más simples requieren de la aplicación de *class weights* para ganar diversidad, mientras que los modelos más complejos logran mayor diversidad de manera inherente
+- La arquitectura más simple (**modelo inicial**) necesitó de la aplicación de *class weights* para ganar diversidad, mientras que el modelo más complejo (**modelo 2**) logró mayor diversidad de manera inherente.
