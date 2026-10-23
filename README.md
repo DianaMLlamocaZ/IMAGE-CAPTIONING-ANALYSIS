@@ -162,7 +162,7 @@ A continuación, se describe cada componente detalladamente:
   <sub>Arquitectura del Decoder</sub>
 </p>
 
-<div algin="center">
+<div align="center">
   <img src="./Images/Decoder.jpg">
 </div>
 
