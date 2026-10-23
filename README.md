@@ -118,7 +118,7 @@ A continuación, se describe cada componente detalladamente:
 </p>
 
 <p align="center">
-  <img src="./Images/Encoder.jpg" width=500>
+  <img src="./Images/Encoder.jpg" width=600>
 </p>
 
 > **NOTA:** El *embedding* de la imagen debe tener la misma cantidad de dimensiones que el *embedding* de cada palabra.
