@@ -183,6 +183,14 @@ A continuación, se describe cada componente detalladamente:
     - **Entrenamiento:**
         - El bucle se ejecuta durante los 'n' pasos, que representa la longitud máxima entre todos los *captions* del *batch*, aplicando un manejo de *padding* en la función de pérdida (*ignore_padding*) para evitar que el *padding token* afecte el cálculo del gradiente en las secuencias.
 
+<p align="center">
+  <sub>Generación de captions (decoder): entrenamiento - inferencia</sub>
+</p>
+
+<div align="center">
+  <img src="./Images/DecoderCaptions.jpg">
+</div>
+
 ----
 
 ## 5) <ins>DATASET</ins>
