@@ -108,7 +108,6 @@ A continuación, se describe cada componente detalladamente:
 
 <p align="center">
   <img src="./Images/Encoder.jpg" width=500>
-  <sub>Arquitectura del Encoder</sub>
 </p>
 
 > **NOTA:** El *embedding* de la imagen debe tener la misma cantidad de dimensiones que el *embedding* de cada palabra.
