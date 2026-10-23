@@ -79,6 +79,10 @@ El preprocesamiento de *captions* comprende las etapas de normalización de text
 - Mapeo del *caption* preprocesado (*string*) a una secuencia de *ID Tokens* (tensor numérico).<br>
 
 <p align="center">
+  <sub>Preprocesamiento de captions</sub>
+</p>
+
+<p align="center">
   <img src="./Images/PreprocesamientoSecuencia.jpg">
 </p>
 
