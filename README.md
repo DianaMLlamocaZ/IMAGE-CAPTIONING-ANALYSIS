@@ -111,7 +111,7 @@ A continuación, se describe cada componente detalladamente:
   
 - Se remueve la última capa de clasificación del modelo, y se cambia por una *Identity Layer* que mantiene las 2048 dimensiones resultantes de la transformación de la capa anterior.
   
-- Se conecta la *Identity Layer* a una capa lineal que mapea las 2048 dimensiones a '*embed_img_size*' dimensiones, donde '*embed_img_size*' se definió con un valor de 128 o 256.
+- Se conecta la *Identity Layer* a una capa lineal que mapea las 2048 dimensiones a '*embed_img_size*' dimensiones, donde '*embed_img_size*' se definió con un valor de 256.
 
 <p align="center">
   <sub>Arquitectura del Encoder</sub>
