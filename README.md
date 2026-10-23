@@ -107,7 +107,7 @@ A continuación, se describe cada componente detalladamente:
 - Se conecta la *Identity Layer* a una capa lineal que mapea las 2048 dimensiones a '*embed_img_size*' dimensiones, donde '*embed_img_size*' se definió con un valor de 256.
 
 <p align="center">
-  <img src="./Images/Encoder.jpg" width=500><br>
+  <img src="./Images/Encoder.jpg" width=500>
   <sub>Arquitectura del Encoder</sub>
 </p>
 
