@@ -158,6 +158,14 @@ A continuación, se describe cada componente detalladamente:
 
 > **NOTA:** La generación de *captions* es a nivel de palabra. En ese sentido, la capa de clasificación tiene 2463 neuronas, correspondientes a las palabras del vocabulario.
 
+<p align="center">
+  <sub>Arquitectura del Decoder</sub>
+</p>
+
+<div algin="center">
+  <img src="./Images/Decoder.jpg">
+</div>
+
 
 #### <ins>4.2.2) FLUJO DE GENERACIÓN DE *CAPTIONS*:</ins>
 - **Dinámica temporal ('n' pasos)**:
