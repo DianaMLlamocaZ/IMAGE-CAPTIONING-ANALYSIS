@@ -80,9 +80,11 @@ El preprocesamiento de *captions* comprende las etapas de normalización de text
 
 <p align="center">
   <img src="./Images/PreprocesamientoSecuencia.jpg">
-  <sub>Preprocesamiento de captions</sub>
 </p>
 
+<p align="center>
+  <sub>Preprocesamiento de captions</sub>
+</p>
 
 > **NOTA**:<br>
 > - Si una palabra se encuentra en el *caption* preprocesado y NO en el vocabulario, se le asigna el token "\<unk>".<br>
