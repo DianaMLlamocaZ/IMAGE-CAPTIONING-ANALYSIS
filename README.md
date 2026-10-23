@@ -80,7 +80,7 @@ El preprocesamiento de *captions* comprende las etapas de normalización de text
 
 <p align="center">
   <img src="./Images/PreprocesamientoSecuencia.jpg">
-  <sub>Preprocesamiento de *captions*</sub>
+  <sub>Preprocesamiento de captions</sub>
 </p>
 
 
@@ -107,10 +107,10 @@ A continuación, se describe cada componente detalladamente:
   
 - Se conecta la *Identity Layer* a una capa lineal que mapea las 2048 dimensiones a '*embed_img_size*' dimensiones, donde '*embed_img_size*' se definió con un valor de 256.
 
-<div align="center">
+<p align="center">
   <img src="./Images/Encoder.jpg" width=500>
-  <sub>Arquitectura del *Encoder*</sub>
-</div>
+  <sub>Arquitectura del Encoder</sub>
+</p>
 
 > **NOTA:** El *embedding* de la imagen debe tener la misma cantidad de dimensiones que el *embedding* de cada palabra.
 
