@@ -434,8 +434,8 @@ De esta manera, al normalizar la probabilidad conjunta por la longitud de la sec
   - Si bien la *temperature* uniformizó las probabilidades del modelo, las secuencias generadas por el algoritmo *Beam Search* continuaron generando pequeñas diferencias al final de cada *caption*, no habiendo diversidad en las secuencias generadas.<br>
   
   - Ante dicha situación, se evaluaron dos enfoques para identificar cuál de ellos tiene un mayor impacto en la generación y diversidad de *captions* del algoritmo *Beam Search*:<br>
-    - [1\) Influencia de la arquitectura del modelo](#11-arquitectura-del-modelo)
-    - [2\) Impacto de los *Class Weights* en las palabras](#12-class-weights-sobre-las-palabras)
+    - [1\) Influencia de la arquitectura del modelo](#12-arquitectura-del-modelo)
+    - [2\) Impacto de los *Class Weights* en las palabras](#13-class-weights-sobre-las-palabras)
     - [Resultados](#134-resumen-de-resultados-en-el-conjunto-de-validación)
     
 ---
